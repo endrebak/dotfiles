@@ -1,0 +1,80 @@
+
+set defsearch=google
+
+"===[ Style ]=====================================================
+
+" Thanks, Steve Losh!
+
+" "" "highlight Search  background: rgba(255, 209, 20, 0.7) !important;
+highlight Hint       font-size: 16px; background: rgba(210,1,133,0.8) !important; border: 2px solid rgb(165,1,105); padding: 4px; border-radius: 3px; font-weight: bold; color: white; font-family: Helvetica; line-height:1em;
+highlight HintActive background: rgba(145,197,43,0.8)    !important;
+highlight HintElem   background: rgba(255, 209, 20, 0.7) !important;
+
+" speedups below
+" highlight Hint       font-size: 16px; background: rgba(210,1,133,0.8) !important; border: 2px solid rgb(165,1,105); border-radius: 3px; font-weight: bold; color: white; font-family: Helvetica; line-height:1em;
+"highlight Hint font-size:175%;color:white;background-color:purple; font-family: Helvetica; padding: 2px;
+
+"===[ General settings ]=====================================================
+
+" remove all menus but tabs
+set gui=nonavigation
+
+" 0, 1, o, l, O, I, i are easy to mistake for each other
+" b and y can be slightly hard to reach
+set hintchars=23456789acdefghjkmnpqrstuvwxzACDEFGHJKLMNPQRSTUVWXZ
+
+
+"===[ General remappings ]=====================================================
+
+" press g to start google autocomplete search
+:nnoremap a :open google
+
+" . is easier to type than :
+:nnoremap . :
+
+" search with s instead of /
+:nnoremap s /
+
+" Use y for copy selected text and Y for copy address of current webpage
+:nnoremap y Y
+:nnoremap Y y
+
+" Avoid opening the firefox search page menu, which can't be disabled without a mouse
+" Remap to forward on page instead
+:map <M-f> <C-f>
+
+" Use b and e for pgup and pgdn - C-f and C-b slightly hard to reach
+:nmap <M-k> <C-b>
+:nmap <M-j> <C-f>
+
+" Use M-h and M-l for back and forth in history. M-hjkl much easier to reach on OS X
+:nmap <M-h> <S-h>
+:nmap <M-l> <S-l>
+
+" Do caret mode to visual mode in one keypress, allows for easier copying
+:noremap v cv
+
+" Press 'm' to go to previous tab
+noremap m :tabprevious<CR>
+" Press ',' to go to next tab
+noremap , :tabnext<CR>
+
+"===[ Scrolling ]=====================================================
+
+"Use J/K for moving just one line - only useful when marking text for copying.
+:noremap J j
+:noremap K k
+
+"Use j/k to move five lines at a time.
+:noremap j 5j
+:noremap k 5k
+
+" Press 'b' to page up, instead of crazy CTRL-B
+:noremap b <PageUp>
+
+"===[ Code snippets ]===================================================
+
+javascript <<EOF
+function slicereader() {var selectedText = '',title = document.title,uri = window.location.href;if (window.getSelection) {selectedText = window.getSelection().toString();} else if (document.getSelection) {selectedText = document.getSelection().toString();} else if (document.selection) {selectedText = document.selection.createRange().text;}if (selectedText) {selectedText = selectedText.replace(/(\r\n|\n+\r)/g, '\n');window.location.href = ['slicereader://read?txt=', encodeURIComponent(selectedText), '&title=', encodeURIComponent(title), '&url=', encodeURIComponent(uri)].join('');} else {window.location.href = ['slicereader://read?url=', encodeURIComponent(uri), '&title=', encodeURIComponent(title)].join('');}};
+
+EOF
