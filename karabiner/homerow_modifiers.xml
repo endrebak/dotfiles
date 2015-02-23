@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+      <appendix>Make home row into modifier keys</appendix>
+      <identifier> private.home_row_to_modifiers</identifier>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::A, KeyCode::S, KeyCode::RETURN</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::L, KeyCode::SEMICOLON, KeyCode::CAPSLOCK</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::S, KeyCode::D, KeyCode::TAB</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::D, KeyCode::F, KeyCode::ESCAPE</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::K, KeyCode::TAB, ModifierFlag::COMMAND_L,</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::K, KeyCode::L, KeyCode::SPACE, ModifierFlag::COMMAND_L,</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::SEMICOLON, KeyCode::ESCAPE, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L,</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::L, KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::CONTROL_L,</autogen>
+      <!-- <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::SEMICOLON, KeyCode::RETURN</autogen> -->
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::A
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::D
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::F
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::J
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::K
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::L
+    </autogen>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::SEMICOLON,
+    </autogen>
+
+
+
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::D, ModifierFlag::NONE,
+
+	KeyCode::SHIFT_L,
+
+	KeyCode::D,
+      </autogen>
+
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::F, ModifierFlag::NONE,
+
+	KeyCode::COMMAND_L,
+
+	KeyCode::F,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::A, ModifierFlag::NONE,
+
+	KeyCode::CONTROL_L,
+
+	KeyCode::A,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::L, ModifierFlag::NONE,
+
+	KeyCode::SHIFT_R,
+
+	KeyCode::L,
+      </autogen>
+
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::SEMICOLON, ModifierFlag::NONE,
+
+	KeyCode::COMMAND_R,
+
+	KeyCode::SEMICOLON,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::J, ModifierFlag::NONE,
+
+	KeyCode::CONTROL_R,
+
+	KeyCode::J,
+      </autogen>
+    </item>
+</root>

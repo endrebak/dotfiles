@@ -1,0 +1,567 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <appendix>Remap asdfg+j to 12345, f+hjklø to 67890</appendix>
+    <identifier>private.qwert_to_12345</identifier>
+    <!--     <autogen> -->
+	  <!-- __KeyOverlaidModifier__ -->
+
+	  <!-- KeyCode::BRACKET_LEFT, ModifierFlag::NONE, -->
+
+	  <!-- KeyCode::, -->
+    <!--       ModifierFlag::NONE, -->
+
+	  <!-- KeyCode::BRACKET_LEFT, ModifierFlag::NONE, -->
+    <!-- </autogen> -->
+
+    <autogen>
+	    __KeyOverlaidModifier__
+
+	    KeyCode::SPACE, ModifierFlag::NONE,
+
+	    KeyCode::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::SPACE, ModifierFlag::NONE,
+    </autogen>
+    <!--     <autogen> -->
+	  <!-- __KeyOverlaidModifier__ -->
+
+	  <!-- KeyCode::TAB, ModifierFlag::NONE, -->
+
+	  <!-- KeyCode::VK_TAB, -->
+    <!--       ModifierFlag::NONE, -->
+
+	  <!-- KeyCode::TAB, ModifierFlag::NONE, -->
+    <!--     </autogen> -->
+    <autogen>
+	    __KeyOverlaidModifier__
+
+	    KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE,
+
+	    KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE,
+
+	    KeyCode::OPTION_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::COMMAND_L,
+
+	    KeyCode::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::TAB,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::DANISH_DOLLAR, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BACKQUOTE, ModifierFlag::NONE,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::EQUAL, ModifierFlag::OPTION_R,
+
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::A,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_1, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::S,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_2, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::D,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_3, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::F,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_4, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::G,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_5, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::H,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_6, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::J,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_7, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::K,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_8, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::L,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_9, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::SEMICOLON,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_0, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::QUOTE,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    __{ KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_L, KeyCode::SPACE }__
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+	    KeyCode::RETURN,
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+	    __{ KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_L, KeyCode::SPACE, KeyCode::KEY_7, ModifierFlag::SHIFT_L, }__
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::Q,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_1, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::W,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_2, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::E,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_3, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::R,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_4, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::T,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_5, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::Y,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_6, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::U,
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_7, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::I,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_8, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::O,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_9, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::P,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_0, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BRACKET_LEFT,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::MINUS, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BRACKET_RIGHT,
+
+	    ModifierFlag::CAPSLOCK,
+
+	    KeyCode::DELETE, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BRACKET_RIGHT,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::DELETE, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BRACKET_RIGHT,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::EQUAL, ModifierFlag::OPTION_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BACKQUOTE, ModifierFlag::NONE,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::DANISH_DOLLAR, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::BACKSLASH, ModifierFlag::NONE,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::EQUAL, ModifierFlag::OPTION_R,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::Z,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::BACKQUOTE, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::X,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::C,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::BACKSLASH, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::V,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::BACKSLASH, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::B,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::N,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_7, ModifierFlag::OPTION_R,
+    </autogen>
+
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::SLASH,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::MINUS, ModifierFlag::NONE,
+
+
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::COMMA,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_8, ModifierFlag::OPTION_R,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::DOT,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_9, ModifierFlag::OPTION_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::M,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_7, ModifierFlag::OPTION_R, ModifierFlag::SHIFT_R,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_4,
+
+      ModifierFlag::NONE,
+
+	    KeyCode::B, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_4,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    __{ KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, KeyCode::SPACE }__
+
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+	    ModifierFlag::NONE,
+
+	    KeyCode::Y, ModifierFlag::NONE,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_4,
+
+      ModifierFlag::CAPSLOCK,
+
+	    KeyCode::B, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+
+      ModifierFlag::CAPSLOCK,
+
+	    KeyCode::Y, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_8, ModifierFlag::SHIFT_L, ModifierFlag::OPTION_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+
+	    ModifierFlag::SHIFT_R,
+
+	    KeyCode::Y, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_4,
+
+      ModifierFlag::SHIFT_R,
+
+	    KeyCode::B, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+
+	    ModifierFlag::SHIFT_R,
+
+	    KeyCode::Y, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_4,
+
+      ModifierFlag::SHIFT_L,
+
+	    KeyCode::B, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_8,
+
+	    ModifierFlag::SHIFT_L,
+
+	    KeyCode::Y, ModifierFlag::SHIFT_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_9,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_9, ModifierFlag::SHIFT_L, ModifierFlag::OPTION_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_1,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::KEY_1, ModifierFlag::COMMAND_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_2,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::KEY_2, ModifierFlag::COMMAND_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_3,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::KEY_3, ModifierFlag::COMMAND_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_9,
+
+	    ModifierFlag::NONE,
+
+	    KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_L,
+    </autogen>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::KEY_5,
+
+	    ModifierFlag::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+
+	    KeyCode::KEY_6, ModifierFlag::SHIFT_L,
+    </autogen>
+
+  </item>
+</root>

@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<root>
+    <modifierdef>OPEN_APPS</modifierdef>
+
+    <!-- These are the different apps that I want to open. -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Emacs</name>
+      <url type="file">/Applications/Emacs.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Slicereader</name>
+      <url type="file">/Applications/Slicereader.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Karabiner</name>
+      <url type="file">/Applications/Karabiner.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Eventviewer</name>
+      <url type="file">/Applications/Eventviewer.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Iterm</name>
+      <url type="file">/Applications/iTerm.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Dash</name>
+      <url type="shell">
+        <![CDATA[ open /Applications/Dash\ 2.app]]>
+      </url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Shortcat</name>
+      <url type="file">/Applications/Shortcat.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Firefox</name>
+      <url type="file">/Applications/Firefox.app</url>
+    </vkopenurldef>
+
+ <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_SHELL_date_pbcopy</name>
+    <url type="shell">
+      <![CDATA[    /bin/date | /usr/bin/pbcopy    ]]>
+    </url>
+  </vkopenurldef>
+  <item>
+    <appendix>Shortcut keys to open apps.</appendix>
+    <identifier>private.shortcut_keys_to_open_apps</identifier>
+
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::K
+    </autogen>
+
+    <!-- <autogen> -->
+    <!--   __BlockUntilKeyUp__ KeyCode::A, ModifierFlag::OPEN_APPS, -->
+    <!-- </autogen> -->
+
+    <autogen>
+	    __KeyOverlaidModifier__
+
+	    <!-- KeyCode::SPACE, ModifierFlag::COMMAND_L, -->
+      KeyCode::K, ModifierFlag::NONE,
+      KeyCode::VK_MODIFIER_OPEN_APPS,
+      KeyCode::K,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Eventviewer,
+    </autogen>
+    <!-- This opens the currently selected text in slicereader -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Slicereader,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::T, ModifierFlag::OPEN_APPS,
+
+      __{ KeyCode::C, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::VK_OPEN_URL_APP_Slicereader, KeyCode::O, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::VK_WAIT_10MS, KeyCode::V | ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::COMMA, | ModifierFlag::CONTROL_L, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::VK_WAIT_50MS, KeyCode::S | ModifierFlag::SHIFT_L, KeyCode::VK_WAIT_50MS, KeyCode::L, KeyCode::VK_WAIT_50MS, KeyCode::I, KeyCode::VK_WAIT_50MS, KeyCode::C, KeyCode::VK_WAIT_50MS, KeyCode::E, KeyCode::VK_WAIT_50MS, KeyCode::RETURN, KeyCode::VK_WAIT_50MS, KeyCode::F | ModifierFlag::COMMAND_R, | ModifierFlag::CONTROL_R }__
+    </autogen>
+
+    <!-- Opens a google query in vimperator. -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::G, ModifierFlag::OPEN_APPS,
+
+      __{ KeyCode::VK_OPEN_URL_APP_Firefox, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::T, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::A, }__
+      <!-- keycode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::E, ModifierFlag::OPEN_APPS,
+
+      KeyCode::DASHBOARD,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::W, ModifierFlag::OPEN_APPS,
+
+      KeyCode::EXPOSE_ALL,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::F, ModifierFlag::OPEN_APPS,
+
+      __ { KeyCode::VK_OPEN_URL_APP_Dash, KeyCode::L, ModifierFlag::COMMAND_L, }__
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::A, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Firefox,
+    </autogen>
+    <!-- <autogen> -->
+    <!--   __doublepressmodifier__ -->
+    <!--   keycode::a, ModifierFlag::OPEN_APPS, -->
+    <!--   KeyCode::A, ModifierFlag::OPEN_APPS, -->
+    <!--   __{ KeyCode::vk_open_URL_APP_Firefox, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::A, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
+    <!-- </autogen> -->
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::L, ModifierFlag::OPEN_APPS,
+
+      KeyCode::VK_OPEN_URL_APP_Karabiner,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::S, ModifierFlag::OPEN_APPS,
+
+      KeyCode::VK_OPEN_URL_APP_Iterm,
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::D, ModifierFlag::OPEN_APPS,
+
+      KeyCode::VK_OPEN_URL_APP_Emacs,
+    </autogen>
+  </item>
+</root>

@@ -12,7 +12,7 @@
  ;; List of configuration layers to load.
  dotspacemacs-configuration-layers '(ruby ess smex clojure python pcre2el company-mode themes-megapack snipe fasd dash) ;;haskell endrebak
  ;; A list of packages and/or extensions that will not be install and loaded.
- dotspacemacs-excluded-packages '()
+ dotspacemacs-excluded-packages '(paredit)
 )
 
 ;; Settings
@@ -31,7 +31,7 @@
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
  ;; pressing `<leader> m`
- dotspacemacs-major-mode-leader-key "ø"
+ dotspacemacs-major-mode-leader-key ","
  ;; The command key used for Evil commands (ex-commands) and
  ;; Emacs commands (M-x).
  ;; By default the command key is `:' so ex-commands are executed like in Vim
@@ -39,7 +39,7 @@
  dotspacemacs-command-key ":"
  ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
  ;; the commands bound to the current keystrokes.
- dotspacemacs-guide-key-delay 0.05
+ dotspacemacs-guide-key-delay 0.4
  ;; If non nil the frame is fullscreen when Emacs starts up (Emacs 24.4+ only).
  dotspacemacs-fullscreen-at-startup t
  ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
@@ -91,10 +91,19 @@ This function is called at the very end of Spacemacs initialization."
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'nil)
 
-  ;; Jump with æ
-  (global-set-key "æ" 'ace-jump-word-mode)
+  ;; Jump with
+  ;; (global-set-key "æ" 'ace-jump-word-mode)
 
-  ;; Prettier font
+  (define-key evil-normal-state-map "j" 'evil-backward-char)
+  (define-key evil-normal-state-map "k" 'evil-next-line)
+  (define-key evil-normal-state-map "l" 'evil-previous-line)
+  (define-key evil-normal-state-map "ø" 'evil-forward-char)
+
+  (define-key evil-visual-state-map "j" 'evil-backward-char)
+  (define-key evil-visual-state-map "k" 'evil-next-line)
+  (define-key evil-visual-state-map "l" 'evil-previous-line)
+  (define-key evil-visual-state-map "ø" 'evil-forward-char)
+  ;; prettier font
   (set-face-attribute 'default nil
                       :family "Inconsolata" :height 175 :weight 'normal)
 
@@ -107,11 +116,14 @@ This function is called at the very end of Spacemacs initialization."
   ;; Centered buffer
   ;;(bzg-big-fringe-mode t)
 
+  ;; Better keybindings for paredit
+  (add-hook 'clojure-mode-hook (lambda () (local-set-key (kbd "M-s") 'save-buffer)))
+
   ;; Where the org-mode agenda files are stored
   (setq org-agenda-files (list "~/Dropbox/Org/"))
 
   ;; Save with M-s
-  (global-set-key "\M-s" 'save-buffer)
+  (global-set-key (kbd "M-s") 'save-buffer)
 
   ;; Switch window with M-o
   (global-set-key "\M-o" 'other-window)

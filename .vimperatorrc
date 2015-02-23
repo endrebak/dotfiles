@@ -21,13 +21,16 @@ set gui=nonavigation
 
 " 0, 1, o, l, O, I, i are easy to mistake for each other
 " b and y can be slightly hard to reach
-set hintchars=23456789acdefghjkmnpqrstuvwxzACDEFGHJKLMNPQRSTUVWXZ
+" capital letters require shift key, slightly awkward ACDEFGHJKLMNPQRSTUVWXZ
+" 23456789
+" acdefghjkmnpqrstuvwxz
+set hintchars=asdfjklø
 
 
 "===[ General remappings ]=====================================================
 
 " press g to start google autocomplete search
-:nnoremap a :open google
+:nnoremap a :open google 
 
 " . is easier to type than :
 :nnoremap . :
@@ -62,12 +65,14 @@ noremap , :tabnext<CR>
 "===[ Scrolling ]=====================================================
 
 "Use J/K for moving just one line - only useful when marking text for copying.
-:noremap J j
-:noremap K k
+" :noremap J j
+" :noremap K k
 
 "Use j/k to move five lines at a time.
-:noremap j 5j
-:noremap k 5k
+:noremap k 5j
+:noremap l 5k
+:noremap j h
+:noremap ø l
 
 " Press 'b' to page up, instead of crazy CTRL-B
 :noremap b <PageUp>

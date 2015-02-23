@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Mouse Warping</name>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL_mousetowindowcenter</name>
+      <url type="shell">
+        <![CDATA[
+                 /Applications/Karabiner.app/Contents/Library/utilities/bin/warp-mouse-cursor-position screen 0 bottom 0 right 0
+        ]]>
+      </url>
+    </vkopenurldef>
+    <item>
+      <identifier>private.f14_mousetowindowcenter</identifier>
+      <name>F14 to move the mouse to the center of the current window</name>
+      <autogen>
+        __SimultaneousKeyPresses__
+        KeyCode::A, KeyCode::J,
+        KeyCode::VK_OPEN_URL_SHELL_mousetowindowcenter
+      </autogen>
+    </item>
+  </item>
+  </root>

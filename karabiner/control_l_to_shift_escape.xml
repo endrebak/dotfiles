@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+      <appendix>Left control to shift, single tap to escape</appendix>
+      <identifier> private.left_control_to_shift</identifier>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::CONTROL_L,
+        KeyCode::OPTION_L,
+        KeyCode::ESCAPE,
+      </autogen>
+  </item>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+      <appendix>Single press LSHIFT to change to second most recently used app</appendix>
+      <!-- <appendix>Single press LSHIFT+SPACE to change to third most recently used app</appendix> -->
+      <identifier>private.lshift_to_change_app</identifier>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::K, KeyCode::TAB, ModifierFlag::COMMAND_L,</autogen>
+    </item>
+    <item>
+      <appendix>Single press RSHIFT to change to third most recently used app</appendix>
+      <appendix>Note that this makes the second most recently used app the third most recently used,
+      so by presssing RSHIFT several times you will change between the three most recently used apps.</appendix>
+      <identifier>private.rshift_to_change_app</identifier>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::K, KeyCode::L, KeyCode::S,
+      </autogen>
+    </item>
+</root>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<root>
+    <modifierdef>VIMKEYS</modifierdef>
+    <item>
+      <appendix>Vimkeys with jklø</appendix>
+      <identifier>private.vimkeys</identifier>
+    <autogen>
+      __BlockUntilKeyUp__ KeyCode::S,
+    </autogen>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::S, ModifierFlag::NONE,
+        KeyCode::VK_MODIFIER_VIMKEYS,
+        KeyCode::S,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::J,
+        ModifierFlag::VIMKEYS,
+
+        KeyCode::CURSOR_LEFT,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::K,
+        ModifierFlag::VIMKEYS,
+
+        KeyCode::CURSOR_DOWN,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::L,
+        ModifierFlag::VIMKEYS,
+
+        KeyCode::CURSOR_UP,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::SEMICOLON,
+        ModifierFlag::VIMKEYS,
+
+        KeyCode::CURSOR_RIGHT,
+      </autogen>
+    </item>
+</root>
