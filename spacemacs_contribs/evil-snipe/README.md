@@ -10,7 +10,7 @@ The package [evil-snipe](https://github.com/hlissner/evil-snipe)
 - adds a new, more precise search with `s/S`
 
 #### f/F/t/T-upgrades
-Instead of repeating searches with `,/;` you can just press `f` again to continue the search (`F` to go the opposite direction).
+Instead of repeating searches with `,/;` you can just press `f/t` again to continue the search (`F/T` to go the opposite direction).
 
 Evil-snipe also adds several other scope options for searches (set `evil-snipe-scope` and `evil-snipe-repeat-scope` to one of these):
 ```
