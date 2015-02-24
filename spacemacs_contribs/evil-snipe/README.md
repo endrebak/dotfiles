@@ -5,7 +5,7 @@
 ;; Generate TOC here, use the command `markdown-toc/generate-toc`
 
 ## Description
-This layer
+[evil-snipe](https://github.com/hlissner/evil-snipe)
 - enables more efficient searches with `f/F/t/T`.
 - adds a new, more precise search with `s/S`
 
@@ -15,11 +15,11 @@ Instead of repeating searches with `,/;` you can just press `f` again to continu
 Evil-snipe also adds several other scope options for searches (set `evil-snipe-scope` and `evil-snipe-repeat-scope` to one of these):
 ```
 'line ;; search line after the cursor (this is vim-seek behavior)
-'buffer ;; search rest of the buffer after the cursor (vim-sneak behavior)
+'buffer ;; search rest of the buffer after the cursor (vim-sneak behavior and default in this contrib layer)
 'visible ;; search rest of visible buffer (Is more performant than 'buffer, but
          ;; will not highlight/jump past the visible buffer)
 'whole-line ;; same as 'line, but highlight matches on either side of cursor
-'whole-buffer ;; same as 'buffer, but highlight *all* matches in buffer (default in this contrib layer)
+'whole-buffer ;; same as 'buffer, but highlight *all* matches in buffer
 'whole-visible ;; same as 'visible, but highlight *all* visible matches in buffer"
 ```
 
