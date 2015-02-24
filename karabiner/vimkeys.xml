@@ -13,6 +13,7 @@
         KeyCode::VK_MODIFIER_VIMKEYS,
         KeyCode::S,
       </autogen>
+
       <autogen>
         __KeyToKey__
 
@@ -44,6 +45,39 @@
         ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_RIGHT,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::J,
+        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+
+        KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::K,
+        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::L,
+        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+
+
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::SEMICOLON,
+        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+
+        KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L,
       </autogen>
     </item>
 </root>

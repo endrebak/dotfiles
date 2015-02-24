@@ -34,8 +34,6 @@
       __BlockUntilKeyUp__ KeyCode::SEMICOLON,
     </autogen>
 
-
-
       <autogen>
 	__KeyOverlaidModifier__
 

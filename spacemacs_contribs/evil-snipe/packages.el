@@ -1,8 +1,8 @@
-(defvar snipe-packages '(evil-snipe)
+(defvar evil-snipe-packages '(evil-snipe)
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
 
-(defun snipe/init-evil-snipe ()
+(defun evil-snipe/init-evil-snipe ()
   (require 'evil-snipe)
   (global-evil-snipe-mode t)
 
@@ -21,5 +21,5 @@ which require an initialization must be listed explicitly in the list.")
   (setq evil-snipe-smart-case t)
 )
 
-(defvar snipe-excluded-packages '()
+(defvar evil-snipe-excluded-packages '()
   "List of packages to exclude.")
