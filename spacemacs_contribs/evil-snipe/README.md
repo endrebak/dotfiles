@@ -7,7 +7,7 @@
 
 - [evil-snipe contribution layer for Spacemacs](#evil-snipe-contribution-layer-for-spacemacs)
     - [Description](#description)
-        - [-](#-)
+        - [Improved f and t searches](#improved-f-and-t-searches)
         - [Improved precision search](#improved-precision-search)
     - [Install](#install)
     - [Key bindings](#key-bindings)
@@ -20,10 +20,10 @@ The package [evil-snipe](https://github.com/hlissner/evil-snipe)
 - enables more efficient searches with `f/F/t/T`.
 - adds a new, more precise search with `s/S`
 
-#### f/F/t/T-upgrades
+### Improved f and t searches
 Instead of repeating searches with `,/;` you can just press `f/t` again to continue the search (`F/T` to go the opposite direction).
 
-Evil-snipe also adds several other scope options for searches (set `evil-snipe-scope` and `evil-snipe-repeat-scope` to one of these):
+Evil-snipe also adds several scope options for searches (set `evil-snipe-scope` and `evil-snipe-repeat-scope` to one of these):
 ```
 'line ;; search line after the cursor (this is vim-seek behavior)
 'buffer ;; search rest of the buffer after the cursor (vim-sneak behavior and default in this contrib layer)
@@ -36,7 +36,7 @@ Evil-snipe also adds several other scope options for searches (set `evil-snipe-s
 
 If you do not want to replace the regular `f/F/t/T` behavior, just remove this line from `evil-snipe/packages.el`: `(evil-snipe-replace-evil)`
 
-#### Improved precision search
+### Improved precision search
 Now you can press `s/S` to search forward/backwards in the buffer with two chars. This greatly improves the precision of the search and is much more useful than it might sound at first. Try it and I'm sure you'll love it!
 
 ## Install
