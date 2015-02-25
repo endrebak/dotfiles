@@ -2,7 +2,18 @@
 
 ![logo](img/Cat_With_Rifle.jpg)
 
-;; Generate TOC here, use the command `markdown-toc/generate-toc`
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc/generate-toc again -->
+**Table of Contents**
+
+- [evil-snipe contribution layer for Spacemacs](#evil-snipe-contribution-layer-for-spacemacs)
+    - [Description](#description)
+        - [-](#-)
+        - [Improved precision search](#improved-precision-search)
+    - [Install](#install)
+    - [Key bindings](#key-bindings)
+
+<!-- markdown-toc end -->
+
 
 ## Description
 The package [evil-snipe](https://github.com/hlissner/evil-snipe)

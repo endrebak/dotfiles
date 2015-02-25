@@ -10,7 +10,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '("~/spacemacs_contribs/")
  ;; List of configuration layers to load.
- dotspacemacs-configuration-layers '(ruby ess smex clojure python pcre2el company-mode themes-megapack evil-snipe fasd dash) ;;haskell endrebak
+ dotspacemacs-configuration-layers '(ruby ess smex clojure python pcre2el company-mode themes-megapack evil-snipe markdown fasd dash) ;;haskell endrebak
  ;; A list of packages and/or extensions that will not be install and loaded.
  dotspacemacs-excluded-packages '(paredit)
 )
