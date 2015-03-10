@@ -1,0 +1,5 @@
+@-moz-document domain("stackoverflow.com") {
+
+#sidebar { display: none; } 
+
+}

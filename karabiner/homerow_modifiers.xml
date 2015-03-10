@@ -3,10 +3,10 @@
     <item>
       <appendix>Make home row into modifier keys</appendix>
       <identifier> private.home_row_to_modifiers</identifier>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::A, KeyCode::S, KeyCode::RETURN</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::A, KeyCode::J, KeyCode::RETURN</autogen>
       <autogen>__SimultaneousKeyPresses__ KeyCode::L, KeyCode::SEMICOLON, KeyCode::CAPSLOCK</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::S, KeyCode::D, KeyCode::TAB</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::D, KeyCode::F, KeyCode::ESCAPE</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::S, KeyCode::K, KeyCode::TAB</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::D, KeyCode::L, KeyCode::ESCAPE</autogen>
       <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::K, KeyCode::TAB, ModifierFlag::COMMAND_L,</autogen>
       <autogen>__SimultaneousKeyPresses__ KeyCode::K, KeyCode::L, KeyCode::SPACE, ModifierFlag::COMMAND_L,</autogen>
       <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::SEMICOLON, KeyCode::ESCAPE, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L,</autogen>

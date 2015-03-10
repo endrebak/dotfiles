@@ -30,7 +30,7 @@ set hintchars=asdfjklø
 "===[ General remappings ]=====================================================
 
 " press g to start google autocomplete search
-:nnoremap a :open google
+:nnoremap a :open google 
 
 " . is easier to type than :
 :nnoremap . :
@@ -50,9 +50,12 @@ set hintchars=asdfjklø
 :nmap <M-k> <C-b>
 :nmap <M-j> <C-f>
 
-" Use M-h and M-l for back and forth in history. M-hjkl much easier to reach on OS X
+" Use M-h and M-l for back and forth in history.
 :nmap <M-j> <S-h>
 :nmap <M-ø> <S-l>
+" Switch tabs with M-k/l
+:nmap <M-k> m
+:nmap <M-l> ,
 
 " Do caret mode to visual mode in one keypress, allows for easier copying
 :noremap v cv

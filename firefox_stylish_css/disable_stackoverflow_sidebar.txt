@@ -1,0 +1,3 @@
+#hot-network-questions { display: none; } 
+.community-bulletin { display: none; }
+
