@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: deftest
+# key: df
+# group: pandas
+# --
+pd.DataFrame()

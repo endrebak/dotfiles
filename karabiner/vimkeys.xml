@@ -60,7 +60,7 @@
         KeyCode::K,
         ModifierFlag::OPTION_L, ModifierFlag::NONE,
 
-        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L,
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
       </autogen>
       <autogen>
         __KeyToKey__
@@ -69,7 +69,7 @@
         ModifierFlag::OPTION_L, ModifierFlag::NONE,
 
 
-        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L,
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
       </autogen>
       <autogen>
         __KeyToKey__

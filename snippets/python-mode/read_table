@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: read_table
+# key: rd
+# group: pandas
+# --
+pd.DataFrame.read_table(${1:filepath_or_buffer}, sep=${2:"\t"}, engine="${3:python}", header=${4:None}, index_col=${5:0})

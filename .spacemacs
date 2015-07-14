@@ -8,14 +8,14 @@
   (setq-default
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(smex clojure python company-mode themes-megapack markdown fasd dash evil-snipe) ;; haskell endrebak evil-annoying-arrows
+   dotspacemacs-configuration-layers '(emacs-lisp git clojure python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github perspectives ace-jump-helm-line fasd)  ;;  avy haskell endrebak evil-annoying-arrows smex fasd dash e
 
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
-   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
+   ;; dotspacemacs-excluded-packages '()
+   ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
    dotspacemacs-delete-orphan-packages t))
@@ -57,7 +57,7 @@ before layers configuration."
    dotspacemacs-command-key ":"
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
-   dotspacemacs-guide-key-delay 0.4
+   dotspacemacs-guide-key-delay 0.1
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil ;; to boost the loading time.
@@ -81,11 +81,11 @@ before layers configuration."
    ;; Transparency can be toggled through `toggle-transparency'.
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line.
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    dotspacemacs-smartparens-strict-mode nil
    ;; If non nil advises quit functions to keep server open when quitting.
@@ -99,70 +99,143 @@ before layers configuration."
   (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
 
   (setq shell-file-name "/bin/bash")
+
   )
+
 
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
-  ;; Run char-mode ace-jump with æ
-  (global-set-key (kbd "Ø") 'evil-ace-jump-char-mode)
+  (defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
+
+  ;; Switch window with M-o
+  (define-key mk-minor-mode-map (kbd "M-o") 'other-window)
+
+  ;; Invoke fasd find fiile
+  (define-key mk-minor-mode-map (kbd "M-f") 'fasd-find-file)
+
+  ;; Invoke fasd find fiile
+  (define-key mk-minor-mode-map (kbd "M-p") 'helm-projectile)
+
+  ;; Save with M-s
+  (define-key mk-minor-mode-map (kbd "M-s") 'save-buffer)
+
+  (define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
+  (define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
+  (define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
+  (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
+  (define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
+  (define-key mk-minor-mode-map (kbd "M-a") 'ace-window)
+
+
+ (eval-after-load "helm"
+   '(define-key helm-map (kbd "ø") 'ace-jump-helm-line-execute-action))
+
+
+  ;; Do not automatically write ) after (
+  (smartparens-global-mode nil)
+
+  (define-minor-mode mk-minor-mode
+    "A minor mode so that my key settings override annoying major modes."
+    t " mk" 'mk-minor-mode-map)
+
+  (mk-minor-mode 1)
+
+
+  ;; (defadvice yes-or-no-p (around prevent-dialog activate)
+  ;;   "Prevent yes-or-no-p from activating a dialog"
+  ;;   (let ((use-dialog-box nil))
+  ;;     ad-do-it))
+  ;; (defadvice y-or-n-p (around prevent-dialog-yorn activate)
+  ;;   "Prevent y-or-n-p from activating a dialog"
+  ;;   (let ((use-dialog-box nil))
+  ;;     ad-do-it))
+
+
+  ;; Make screen grey when using avy
+  (setq avy-background t)
+  (setq avy-highlight-first nil)
+  (setq avy-all-windows t)
+
+  ;; Make decision trees less weird at the expense of terseness
+  (setq avy-style 'de-bruijn)
+  (setq avy-timeout-seconds 0.3)
+
+  ;; Display avy chars in uppercase but enter in lower
+  (setq avy-keys
+        '(?A ?S ?D ?F ?J ?K ?L ?Ø))
+  (setq avy-translate-char-function #'upcase)
 
   ;; Make alt-key work as normal
   (setq default-input-method "MacOSX")
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'nil)
 
-  ;; Do not need to move fingers for movements
-  (define-key evil-normal-state-map "j" 'evil-backward-char)
-  (define-key evil-normal-state-map "k" 'evil-next-line)
-  (define-key evil-normal-state-map "l" 'evil-previous-line)
-  (define-key evil-normal-state-map "ø" 'evil-forward-char)
+  ;; Use home row keys for various movements
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
+  (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
+  (define-key evil-normal-state-map "l" 'spacemacs/next-useful-buffer)
+  (define-key evil-normal-state-map "k" 'spacemacs/previous-useful-buffer)
+  (define-key evil-normal-state-map "K" 'kill-this-buffer)
+  (define-key evil-normal-state-map "ø" 'avy-goto-char-timer)
+  (define-key evil-normal-state-map "Ø" 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+  (define-key evil-normal-state-map "j" 'pop-to-mark-command)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
+  (define-key evil-normal-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+  (define-key evil-normal-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+  ;; (define-key evil-normal-state-map (kbd "M-j") 'sp-backward-symbol)
+  ;; (define-key evil-normal-state-map (kbd "M-ø") 'forward-symbol)
 
-  (define-key evil-visual-state-map "j" 'evil-backward-char)
-  (define-key evil-visual-state-map "k" 'evil-next-line)
-  (define-key evil-visual-state-map "l" 'evil-previous-line)
-  (define-key evil-visual-state-map "ø" 'evil-forward-char)
+  ;; (define-key evil-visual-state-map "l" 'avy-goto-line)
+  (define-key evil-visual-state-map (kbd "<down>") 'evil-next-line)
+  (define-key evil-visual-state-map (kbd "<up>") 'evil-previous-line)
+  (define-key evil-visual-state-map "ø" 'avy-goto-char-timer)
+  (define-key evil-visual-state-map (kbd "C-l") 'evil-backward-paragraph)
+  (define-key evil-visual-state-map (kbd "C-k") 'evil-forward-paragraph)
+  (define-key evil-visual-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+  (define-key evil-visual-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+  ;; (define-key evil-visual-state-map (kbd "M-j") 'sp-backward-symbol)
+  ;; (define-key evil-visual-state-map (kbd "M-ø") 'forward-symbol)
 
-  (define-key evil-motion-state-map "j" 'evil-backward-char)
+
+  ;; (define-key evil-motion-state-map "l" 'avy-goto-line)
   (define-key evil-motion-state-map "k" 'evil-next-line)
   (define-key evil-motion-state-map "l" 'evil-previous-line)
-  (define-key evil-motion-state-map "ø" 'evil-forward-char)
+  ;; (define-key evil-motion-state-map "k" 'avy-goto-word-or-subword-1)
+  (define-key evil-motion-state-map "ø" 'avy-goto-char-timer)
+  (define-key evil-motion-state-map (kbd "C-l") 'evil-backward-paragraph)
+  (define-key evil-motion-state-map (kbd "C-k") 'evil-forward-paragraph)
+  (define-key evil-motion-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+  (define-key evil-motion-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+  ;; (define-key evil-motion-state-map (kbd "M-j") 'sp-backward-symbol)
+  ;; (define-key evil-motion-state-map (kbd "M-ø") 'forward-symbol)
+
+
+  (define-key evil-insert-state-map "ø" 'yas-expand)
+
 
   ;; prettier font
   (set-face-attribute 'default nil
-                      :family "Inconsolata" :height 175 :weight 'normal)
+                      :family "Inconsolata" :height 150 :weight 'normal)
 
   ;; To avoid pixellated powerline
-  (setq powerline-default-separator nil)
+  (setq powerline-default-separator 'rounded)
 
   ;; Make evil-snipe override evil fFtT;,
-  (setq evil-snipe-override-evil t)
+  (evil-snipe-mode 1)
+  (setq evil-snipe-override-mode t)
   (setq evil-snipe-repeat-keys t)
   (setq evil-snipe-scope 'whole-buffer)
   (setq evil-snipe-repeat-scope 'whole-buffer)
-  (setq evil-snipe-auto-scroll t)
+  (setq evil-snipe-auto-scroll nil)
 
-  ;;
-  (guide-key-mode -1)
+  ;; do not need to reload buffers to see git branch change
+  (global-auto-revert-mode 1)
+  (setq auto-revert-check-vc-info t)
 
-  ;; Save with M-s
-  (global-set-key (kbd "M-s") 'save-buffer)
-
-  ;; Switch window with M-o
-  (global-set-key "\M-o" 'other-window)
-
-  ;; Use line numbers
-  (global-linum-mode 0)
-  (linum-relative-toggle)
-  (bzg-big-fringe-mode 1)
-  ;; Use golden ratio mode on startup
-  ;; (require 'golden-ratio)
-  (golden-ratio-mode 1)
-
-  ;; Tell me when I have used the arrow keys too much
-  ;;(require 'annoying-arrows-mode)
 
   ;; Turn off the tildes in the fringe
   (global-vi-tilde-fringe-mode -1)
@@ -175,7 +248,19 @@ layers configuration."
   (setq org-agenda-files '("~/Dropbox/Org/"))
 
   (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-)
+
+  (setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets")))
+
+;; (defun custom-persp/python ()
+;;   (interactive)
+;;   (custom-persp "python"
+;;                 (progn
+;;                   (layout-triple-columns)
+;;                   (select-window-3)
+;;                   (python-start-or-switch-repl))))
+
+;;   (custom-persp/python)
+;;   (define-key mk-minor-mode-map (kbd "C-p") 'custom-persp/python)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -196,5 +281,10 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(avy-lead-face ((t (:background "DeepSkyBlue3" :foreground "white"))))
+ '(avy-lead-face-0 ((t (:background "DeepSkyBlue3" :foreground "white"))))
+ '(avy-lead-face-1 ((t (:background "DeepSkyBlue3" :foreground "white"))))
+ '(avy-lead-face-2 ((t (:background "DeepSkyBlue3" :foreground "white"))))
+ '(aw-leading-char-face ((t (:foreground "red" :height 15.0))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

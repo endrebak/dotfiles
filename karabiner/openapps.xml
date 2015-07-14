@@ -7,6 +7,19 @@
       <name>KeyCode::VK_OPEN_URL_APP_Preview</name>
       <url type="file">/Applications/Preview.app</url>
     </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Kindle</name>
+      <url type="file">/Applications/Kindle.app</url>
+    </vkopenurldef>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Ibooks</name>
+      <url type="file">/Applications/Ibooks.app</url>
+    </vkopenurldef>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Atom</name>
+      <url type="file">/Applications/Atom.app</url>
+    </vkopenurldef>
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_APP_Emacs</name>
       <url type="file">/Applications/Emacs.app</url>
@@ -46,13 +59,17 @@
     </vkopenurldef>
 
     <vkopenurldef>
-      <name>KeyCode::VK_OPEN_URL_APP_Firefox</name>
-      <url type="file">/Applications/Firefox.app</url>
+      <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
+      <url type="file">/Applications/Google Chrome.app</url>
     </vkopenurldef>
 
  <vkopenurldef>
     <name>KeyCode::VK_OPEN_URL_APP_Keynote</name>
       <url type="file">/Applications/Keynote.app</url>
+  </vkopenurldef>
+ <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Messages</name>
+      <url type="file">/Applications/Messages.app</url>
   </vkopenurldef>
   <item>
     <appendix>Shortcut keys to open apps.</appendix>
@@ -66,6 +83,7 @@
     <!--   __BlockUntilKeyUp__ KeyCode::A, ModifierFlag::OPEN_APPS, -->
     <!-- </autogen> -->
 
+
     <autogen>
 	    __KeyOverlaidModifier__
 
@@ -75,6 +93,16 @@
       KeyCode::K,
     </autogen>
 
+    <autogen>
+      __KeyToKey__
+      KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Kindle,
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::M, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Messages,
+    </autogen>
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::OPEN_APPS,
@@ -90,6 +118,11 @@
       __KeyToKey__
       KeyCode::Q, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Keynote,
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Ibooks,
     </autogen>
     <autogen>
       __KeyToKey__
@@ -109,7 +142,7 @@
       __KeyToKey__
       KeyCode::G, ModifierFlag::OPEN_APPS,
 
-      __{ KeyCode::VK_OPEN_URL_APP_Firefox, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::T, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::A, }__
+      __{ KeyCode::VK_OPEN_URL_APP_Chrome, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::T, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::A, }__
       <!-- keycode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
     </autogen>
 
@@ -137,13 +170,13 @@
     <autogen>
       __KeyToKey__
       KeyCode::A, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Firefox,
+      KeyCode::VK_OPEN_URL_APP_Chrome,
     </autogen>
     <!-- <autogen> -->
     <!--   __doublepressmodifier__ -->
     <!--   keycode::a, ModifierFlag::OPEN_APPS, -->
     <!--   KeyCode::A, ModifierFlag::OPEN_APPS, -->
-    <!--   __{ KeyCode::vk_open_URL_APP_Firefox, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::A, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
+    <!--   __{ KeyCode::vk_open_URL_APP_Chrome, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::A, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
     <!-- </autogen> -->
 
     <autogen>

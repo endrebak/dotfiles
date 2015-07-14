@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: test_file
+# key: tf
+# group : testing
+# --
+import py.test
+${1:from ${2:test_file} import *}
+
+$0
+
