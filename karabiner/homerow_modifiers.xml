@@ -3,55 +3,51 @@
     <item>
       <appendix>Make home row into modifier keys</appendix>
       <identifier> private.home_row_to_modifiers</identifier>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::A, KeyCode::J, KeyCode::RETURN</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::L, KeyCode::SEMICOLON, KeyCode::CAPSLOCK</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::S, KeyCode::K, KeyCode::TAB</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::D, KeyCode::L, KeyCode::ESCAPE</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::K, KeyCode::TAB, ModifierFlag::COMMAND_L,</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::K, KeyCode::L, KeyCode::SPACE, ModifierFlag::COMMAND_L,</autogen>
-      <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::SEMICOLON, KeyCode::ESCAPE, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L,</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::ESCAPE, KeyCode::SEMICOLON, KeyCode::RETURN</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::A, KeyCode::QUOTE, KeyCode::TAB</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::S, KeyCode::BACKSLASH, KeyCode::ESCAPE</autogen>
+      <autogen>__SimultaneousKeyPresses__ KeyCode::D, KeyCode::RETURN, KeyCode::W, ModifierFlag::COMMAND_L,</autogen>
       <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::L, KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::CONTROL_L,</autogen>
-      <!-- <autogen>__SimultaneousKeyPresses__ KeyCode::F, KeyCode::SEMICOLON, KeyCode::RETURN</autogen> -->
+    <!-- <autogen> -->
+    <!--   __BlockUntilKeyUp__ KeyCode::ESCAPE -->
+    <!-- </autogen> -->
     <autogen>
       __BlockUntilKeyUp__ KeyCode::A
     </autogen>
     <autogen>
-      __BlockUntilKeyUp__ KeyCode::D
+      __BlockUntilKeyUp__ KeyCode::S
     </autogen>
     <autogen>
       __BlockUntilKeyUp__ KeyCode::F
     </autogen>
     <autogen>
-      __BlockUntilKeyUp__ KeyCode::J
+      __BlockUntilKeyUp__ KeyCode::SEMICOLON
     </autogen>
     <autogen>
-      __BlockUntilKeyUp__ KeyCode::K
+      __BlockUntilKeyUp__ KeyCode::QUOTE
     </autogen>
     <autogen>
-      __BlockUntilKeyUp__ KeyCode::L
+      __BlockUntilKeyUp__ KeyCode::RETURN,
     </autogen>
-    <autogen>
-      __BlockUntilKeyUp__ KeyCode::SEMICOLON,
-    </autogen>
+
+  <!--     <autogen> -->
+	<!-- __KeyOverlaidModifier__ -->
+
+	<!-- KeyCode::D, ModifierFlag::NONE, -->
+
+	<!-- KeyCode::SHIFT_L, -->
+
+	<!-- KeyCode::D, -->
+  <!--     </autogen> -->
 
       <autogen>
 	__KeyOverlaidModifier__
 
-	KeyCode::D, ModifierFlag::NONE,
-
-	KeyCode::SHIFT_L,
-
-	KeyCode::D,
-      </autogen>
-
-      <autogen>
-	__KeyOverlaidModifier__
-
-	KeyCode::F, ModifierFlag::NONE,
+	KeyCode::S, ModifierFlag::NONE,
 
 	KeyCode::COMMAND_L,
 
-	KeyCode::F,
+	KeyCode::D,
       </autogen>
       <autogen>
 	__KeyOverlaidModifier__
@@ -60,35 +56,44 @@
 
 	KeyCode::CONTROL_L,
 
-	KeyCode::A,
-      </autogen>
-      <autogen>
-	__KeyOverlaidModifier__
-
-	KeyCode::L, ModifierFlag::NONE,
-
-	KeyCode::SHIFT_R,
-
-	KeyCode::L,
+	KeyCode::S,
       </autogen>
 
       <autogen>
 	__KeyOverlaidModifier__
 
-	KeyCode::SEMICOLON, ModifierFlag::NONE,
+	KeyCode::KEYPAD_6, ModifierFlag::NONE,
+
+	KeyCode::COMMAND_L,
+
+	KeyCode::K,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::KEYPAD_5, ModifierFlag::NONE,
+
+	KeyCode::CONTROL_L,
+
+	KeyCode::J,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::BACKSLASH, ModifierFlag::NONE,
 
 	KeyCode::COMMAND_R,
 
-	KeyCode::SEMICOLON,
+	KeyCode::BACKSLASH,
       </autogen>
       <autogen>
 	__KeyOverlaidModifier__
 
-	KeyCode::J, ModifierFlag::NONE,
+	KeyCode::QUOTE, ModifierFlag::NONE,
 
 	KeyCode::CONTROL_R,
 
-	KeyCode::J,
+	KeyCode::QUOTE,
       </autogen>
     </item>
 </root>

@@ -4,20 +4,17 @@
     <item>
       <appendix>Vimkeys with jklø</appendix>
       <identifier>private.vimkeys</identifier>
-    <autogen>
-      __BlockUntilKeyUp__ KeyCode::S,
-    </autogen>
       <autogen>
         __KeyOverlaidModifier__
-        KeyCode::S, ModifierFlag::NONE,
+        KeyCode::CURSOR_DOWN,
         KeyCode::VK_MODIFIER_VIMKEYS,
-        KeyCode::S,
+        KeyCode::TAB,
       </autogen>
 
       <autogen>
         __KeyToKey__
 
-        KeyCode::J,
+        KeyCode::KEYPAD_4,
         ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_LEFT,
@@ -25,7 +22,7 @@
       <autogen>
         __KeyToKey__
 
-        KeyCode::K,
+        KeyCode::KEYPAD_5,
         ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_DOWN,
@@ -33,7 +30,7 @@
       <autogen>
         __KeyToKey__
 
-        KeyCode::L,
+        KeyCode::KEYPAD_6,
         ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_UP,
@@ -41,7 +38,7 @@
       <autogen>
         __KeyToKey__
 
-        KeyCode::SEMICOLON,
+        KeyCode::KEYPAD_PLUS,
         ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_RIGHT,
@@ -49,33 +46,33 @@
       <autogen>
         __KeyToKey__
 
-        KeyCode::J,
-        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+        KeyCode::CONTROL_L, ModifierFlag::CONTROL_L,
+        ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L,
       </autogen>
       <autogen>
         __KeyToKey__
 
-        KeyCode::K,
-        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+        KeyCode::A,
+        ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
       </autogen>
       <autogen>
         __KeyToKey__
 
-        KeyCode::L,
-        ModifierFlag::OPTION_L, ModifierFlag::NONE,
-
+        KeyCode::S,
+        ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_UP, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
       </autogen>
+
       <autogen>
         __KeyToKey__
 
-        KeyCode::SEMICOLON,
-        ModifierFlag::OPTION_L, ModifierFlag::NONE,
+        KeyCode::D,
+        ModifierFlag::VIMKEYS,
 
         KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L,
       </autogen>

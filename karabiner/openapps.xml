@@ -76,7 +76,7 @@
     <identifier>private.shortcut_keys_to_open_apps</identifier>
 
     <autogen>
-      __BlockUntilKeyUp__ KeyCode::K
+      __BlockUntilKeyUp__ KeyCode::RETURN
     </autogen>
 
     <!-- <autogen> -->
@@ -86,18 +86,27 @@
 
     <autogen>
 	    __KeyOverlaidModifier__
-
-	    <!-- KeyCode::SPACE, ModifierFlag::COMMAND_L, -->
-      KeyCode::K, ModifierFlag::NONE,
+      KeyCode::KEYPAD_PLUS, ModifierFlag::NONE,
       KeyCode::VK_MODIFIER_OPEN_APPS,
-      KeyCode::K,
+      KeyCode::L,
     </autogen>
 
-    <autogen>
-      __KeyToKey__
-      KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Kindle,
-    </autogen>
+
+
+
+    <!-- <autogen> -->
+	  <!--   __KeyOverlaidModifier__ -->
+
+	  <!--   <\!-- KeyCode::SPACE, ModifierFlag::COMMAND_L, -\-> -->
+    <!--   KeyCode::CURSOR_DOWN, ModifierFlag::NONE, -->
+    <!--   KeyCode::VK_MODIFIER_OPEN_APPS, -->
+    <!--   KeyCode::RETURN, -->
+    <!-- </autogen> -->
+    <!-- <autogen> -->
+    <!--   __KeyToKey__ -->
+    <!--   KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS, -->
+    <!--   KeyCode::VK_OPEN_URL_APP_Kindle, -->
+    <!-- </autogen> -->
     <autogen>
       __KeyToKey__
       KeyCode::M, ModifierFlag::OPEN_APPS,
@@ -110,7 +119,7 @@
     </autogen>
     <autogen>
       __KeyToKey__
-      KeyCode::H, ModifierFlag::OPEN_APPS,
+      KeyCode::BRACKET_LEFT, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Eventviewer,
     </autogen>
     <!-- This opens the currently selected text in slicereader -->
@@ -123,18 +132,6 @@
       __KeyToKey__
       KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Ibooks,
-    </autogen>
-    <autogen>
-      __KeyToKey__
-      KeyCode::J, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Slicereader,
-    </autogen>
-
-    <autogen>
-      __KeyToKey__
-      KeyCode::T, ModifierFlag::OPEN_APPS,
-
-      __{ KeyCode::C, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::VK_OPEN_URL_APP_Slicereader, KeyCode::O, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::VK_WAIT_10MS, KeyCode::V | ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::COMMA, | ModifierFlag::CONTROL_L, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::VK_WAIT_50MS, KeyCode::S | ModifierFlag::SHIFT_L, KeyCode::VK_WAIT_50MS, KeyCode::L, KeyCode::VK_WAIT_50MS, KeyCode::I, KeyCode::VK_WAIT_50MS, KeyCode::C, KeyCode::VK_WAIT_50MS, KeyCode::E, KeyCode::VK_WAIT_50MS, KeyCode::RETURN, KeyCode::VK_WAIT_50MS, KeyCode::F | ModifierFlag::COMMAND_R, | ModifierFlag::CONTROL_R }__
     </autogen>
 
     <!-- Opens a google query in vimperator. -->
@@ -159,7 +156,6 @@
 
       KeyCode::EXPOSE_ALL,
     </autogen>
-
     <autogen>
       __KeyToKey__
       KeyCode::F, ModifierFlag::OPEN_APPS,
@@ -172,12 +168,6 @@
       KeyCode::A, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Chrome,
     </autogen>
-    <!-- <autogen> -->
-    <!--   __doublepressmodifier__ -->
-    <!--   keycode::a, ModifierFlag::OPEN_APPS, -->
-    <!--   KeyCode::A, ModifierFlag::OPEN_APPS, -->
-    <!--   __{ KeyCode::vk_open_URL_APP_Chrome, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::A, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
-    <!-- </autogen> -->
 
     <autogen>
       __KeyToKey__
@@ -197,6 +187,18 @@
       KeyCode::D, ModifierFlag::OPEN_APPS,
 
       KeyCode::VK_OPEN_URL_APP_Emacs,
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Slicereader,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::T, ModifierFlag::OPEN_APPS,
+
+      __{ KeyCode::C, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::VK_OPEN_URL_APP_Slicereader, KeyCode::O, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::VK_WAIT_10MS, KeyCode::V | ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::COMMA, | ModifierFlag::CONTROL_L, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::VK_WAIT_50MS, KeyCode::S | ModifierFlag::SHIFT_L, KeyCode::VK_WAIT_50MS, KeyCode::L, KeyCode::VK_WAIT_50MS, KeyCode::I, KeyCode::VK_WAIT_50MS, KeyCode::C, KeyCode::VK_WAIT_50MS, KeyCode::E, KeyCode::VK_WAIT_50MS, KeyCode::RETURN, KeyCode::VK_WAIT_50MS, KeyCode::F | ModifierFlag::COMMAND_R, | ModifierFlag::CONTROL_R }__
     </autogen>
   </item>
 </root>

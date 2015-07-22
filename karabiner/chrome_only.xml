@@ -2,7 +2,7 @@
 <root>
   <item>
 
-    <appendix>Use ø (;) to exit the satanically moronic omnibox in chrome.</appendix>
+    <appendix>Use ø (;) to exit the moronic omnibox in chrome.</appendix>
     <identifier>private.make_up_for_shitty_chrome_behavior</identifier>
     <only>GOOGLE_CHROME</only>
 
