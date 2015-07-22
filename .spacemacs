@@ -131,7 +131,7 @@ layers configuration."
 
 
  (eval-after-load "helm"
-   '(define-key helm-map (kbd "ø") 'ace-jump-helm-line-execute-action))
+   '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))
 
 
   ;; Do not automatically write ) after (
@@ -176,11 +176,11 @@ layers configuration."
   ;; Use home row keys for various movements
   (define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
   (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
-  (define-key evil-normal-state-map "l" 'spacemacs/next-useful-buffer)
-  (define-key evil-normal-state-map "k" 'spacemacs/previous-useful-buffer)
+  (define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
+  (define-key evil-normal-state-map (kbd "<f4>") 'spacemacs/previous-useful-buffer)
   (define-key evil-normal-state-map "K" 'kill-this-buffer)
-  (define-key evil-normal-state-map "ø" 'avy-goto-char-timer)
-  (define-key evil-normal-state-map "Ø" 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+  (define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
+  (define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
   (define-key evil-normal-state-map "j" 'pop-to-mark-command)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
   (define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
@@ -192,7 +192,8 @@ layers configuration."
   ;; (define-key evil-visual-state-map "l" 'avy-goto-line)
   (define-key evil-visual-state-map (kbd "<down>") 'evil-next-line)
   (define-key evil-visual-state-map (kbd "<up>") 'evil-previous-line)
-  (define-key evil-visual-state-map "ø" 'avy-goto-char-timer)
+  (define-key evil-visual-state-map (kbd "<f5>") 'avy-goto-char-timer)
+  (define-key evil-visual-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
   (define-key evil-visual-state-map (kbd "C-l") 'evil-backward-paragraph)
   (define-key evil-visual-state-map (kbd "C-k") 'evil-forward-paragraph)
   (define-key evil-visual-state-map (kbd "M-l") 'evil-backward-indentation-begin)
@@ -205,7 +206,8 @@ layers configuration."
   (define-key evil-motion-state-map "k" 'evil-next-line)
   (define-key evil-motion-state-map "l" 'evil-previous-line)
   ;; (define-key evil-motion-state-map "k" 'avy-goto-word-or-subword-1)
-  (define-key evil-motion-state-map "ø" 'avy-goto-char-timer)
+  (define-key evil-motion-state-map (kbd "<f5>") 'avy-goto-char-timer)
+  (define-key evil-motion-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
   (define-key evil-motion-state-map (kbd "C-l") 'evil-backward-paragraph)
   (define-key evil-motion-state-map (kbd "C-k") 'evil-forward-paragraph)
   (define-key evil-motion-state-map (kbd "M-l") 'evil-backward-indentation-begin)
@@ -214,7 +216,8 @@ layers configuration."
   ;; (define-key evil-motion-state-map (kbd "M-ø") 'forward-symbol)
 
 
-  (define-key evil-insert-state-map "ø" 'yas-expand)
+  (define-key evil-insert-state-map (kbd "<f5>") 'avy-goto-char-timer)
+  (define-key evil-insert-state-map (kbd "<f7>") 'yas-expand)
 
 
   ;; prettier font

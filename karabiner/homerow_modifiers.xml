@@ -43,6 +43,15 @@
       <autogen>
 	__KeyOverlaidModifier__
 
+	KeyCode::D, ModifierFlag::NONE,
+
+	KeyCode::SHIFT_R,
+
+	KeyCode::F,
+      </autogen>
+      <autogen>
+	__KeyOverlaidModifier__
+
 	KeyCode::S, ModifierFlag::NONE,
 
 	KeyCode::COMMAND_L,
@@ -76,6 +85,16 @@
 	KeyCode::CONTROL_L,
 
 	KeyCode::J,
+      </autogen>
+
+      <autogen>
+	__KeyOverlaidModifier__
+
+	KeyCode::KEYPAD_4, ModifierFlag::NONE,
+
+	KeyCode::SHIFT_R,
+
+	KeyCode::H,
       </autogen>
       <autogen>
 	__KeyOverlaidModifier__

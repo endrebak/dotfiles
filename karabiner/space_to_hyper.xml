@@ -27,6 +27,8 @@
 	    PointingButton::LEFT,
     </autogen>
 
+
+
     <autogen>
 
 	    __KeyOverlaidModifier__
@@ -66,35 +68,22 @@
 
 
     <!-- hyper key settings -->
-    <!-- keypad on right side -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::KEYPAD_4, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_LEFT,
-    </autogen>
-    <autogen>
-      __KeyToKey__
-      KeyCode::KEYPAD_5, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_DOWN,
-    </autogen>
-
-    <autogen>
-      __KeyToKey__
-      KeyCode::KEYPAD_6, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_UP,
-    </autogen>
-
-    <autogen>
-      __KeyToKey__
-      KeyCode::KEYPAD_PLUS, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_RIGHT,
-    </autogen>
-
     <!-- regular keys -->
     <autogen>
       __KeyToKey__
       KeyCode::TAB, ModifierFlag::NONE,
       KeyCode::W,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::TAB, ModifierFlag::NONE, ModifierFlag::CONTROL_L,
+      KeyCode::W, ModifierFlag::CONTROL_L,
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::TAB, ModifierFlag::NONE, ModifierFlag::COMMAND_L,
+      KeyCode::W, ModifierFlag::COMMAND_L,
     </autogen>
 
     <autogen>
@@ -126,6 +115,12 @@
       __KeyToKey__
       KeyCode::Q, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::E,  ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::Q, ModifierFlag::NONE, ModifierFlag::COMMAND_L,
+      KeyCode::E,  ModifierFlag::COMMAND_L,
     </autogen>
 
     <autogen>
@@ -175,6 +170,12 @@
       __KeyToKey__
       KeyCode::E, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::T, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::W, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
+      KeyCode::R, ModifierFlag::SHIFT_R,
     </autogen>
 
     <autogen>
