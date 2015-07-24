@@ -94,19 +94,6 @@
 
 
 
-    <!-- <autogen> -->
-	  <!--   __KeyOverlaidModifier__ -->
-
-	  <!--   <\!-- KeyCode::SPACE, ModifierFlag::COMMAND_L, -\-> -->
-    <!--   KeyCode::CURSOR_DOWN, ModifierFlag::NONE, -->
-    <!--   KeyCode::VK_MODIFIER_OPEN_APPS, -->
-    <!--   KeyCode::RETURN, -->
-    <!-- </autogen> -->
-    <!-- <autogen> -->
-    <!--   __KeyToKey__ -->
-    <!--   KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS, -->
-    <!--   KeyCode::VK_OPEN_URL_APP_Kindle, -->
-    <!-- </autogen> -->
     <autogen>
       __KeyToKey__
       KeyCode::M, ModifierFlag::OPEN_APPS,
@@ -123,39 +110,31 @@
       KeyCode::VK_OPEN_URL_APP_Eventviewer,
     </autogen>
     <!-- This opens the currently selected text in slicereader -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::Q, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Keynote,
-    </autogen>
+    <!-- <autogen> -->
+    <!--   __KeyToKey__ -->
+    <!--   KeyCode::Q, ModifierFlag::OPEN_APPS, -->
+    <!--   KeyCode::VK_OPEN_URL_APP_Keynote, -->
+    <!-- </autogen> -->
     <autogen>
       __KeyToKey__
       KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Ibooks,
     </autogen>
 
-    <!-- Opens a google query in vimperator. -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::OPEN_APPS,
 
       __{ KeyCode::VK_OPEN_URL_APP_Chrome, KeyCode::ESCAPE, KeyCode::VK_WAIT_10MS, KeyCode::T, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::A, }__
-      <!-- keycode::VK_WAIT_10MS, KeyCode::SPACE, }__ -->
     </autogen>
 
-    <autogen>
-      __KeyToKey__
-      KeyCode::E, ModifierFlag::OPEN_APPS,
+    <!-- <autogen> -->
+    <!--   __KeyToKey__ -->
+    <!--   KeyCode::, ModifierFlag::OPEN_APPS, -->
 
-      KeyCode::DASHBOARD,
-    </autogen>
+    <!--   KeyCode::DASHBOARD, -->
+    <!-- </autogen> -->
 
-    <autogen>
-      __KeyToKey__
-      KeyCode::W, ModifierFlag::OPEN_APPS,
-
-      KeyCode::EXPOSE_ALL,
-    </autogen>
     <autogen>
       __KeyToKey__
       KeyCode::F, ModifierFlag::OPEN_APPS,
@@ -165,7 +144,7 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::A, ModifierFlag::OPEN_APPS,
+      KeyCode::KEYPAD_4, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Chrome,
     </autogen>
 
@@ -178,13 +157,13 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::S, ModifierFlag::OPEN_APPS,
+      KeyCode::KEYPAD_5, ModifierFlag::OPEN_APPS,
 
       KeyCode::VK_OPEN_URL_APP_Iterm,
     </autogen>
     <autogen>
       __KeyToKey__
-      KeyCode::D, ModifierFlag::OPEN_APPS,
+      KeyCode::KEYPAD_6, ModifierFlag::OPEN_APPS,
 
       KeyCode::VK_OPEN_URL_APP_Emacs,
     </autogen>
@@ -200,5 +179,74 @@
 
       __{ KeyCode::C, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::VK_OPEN_URL_APP_Slicereader, KeyCode::O, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::VK_WAIT_10MS, KeyCode::V | ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_10MS, KeyCode::COMMA, | ModifierFlag::CONTROL_L, KeyCode::VK_WAIT_10MS, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::SPACE, KeyCode::VK_WAIT_50MS, KeyCode::S | ModifierFlag::SHIFT_L, KeyCode::VK_WAIT_50MS, KeyCode::L, KeyCode::VK_WAIT_50MS, KeyCode::I, KeyCode::VK_WAIT_50MS, KeyCode::C, KeyCode::VK_WAIT_50MS, KeyCode::E, KeyCode::VK_WAIT_50MS, KeyCode::RETURN, KeyCode::VK_WAIT_50MS, KeyCode::F | ModifierFlag::COMMAND_R, | ModifierFlag::CONTROL_R }__
     </autogen>
-  </item>
+
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::TAB,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::Q,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::W,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
+      </autogen>
+
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::E,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L,
+      </autogen>
+
+
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::CONTROL_L, ModifierFlag::CONTROL_L,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_LEFT,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::A,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_DOWN,
+      </autogen>
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::S,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_UP,
+      </autogen>
+
+      <autogen>
+        __KeyToKey__
+
+        KeyCode::D,
+        ModifierFlag::OPEN_APPS,
+
+        KeyCode::CURSOR_RIGHT,
+      </autogen>
+    </item>
 </root>

@@ -11,7 +11,7 @@
    dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(emacs-lisp git clojure python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github perspectives ace-jump-helm-line fasd)  ;;  avy haskell endrebak evil-annoying-arrows smex fasd dash e
+   dotspacemacs-configuration-layers '(emacs-lisp git rust python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github perspectives ace-jump-helm-line fasd)  ;;  avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    ;; dotspacemacs-excluded-packages '()
@@ -100,6 +100,10 @@ before layers configuration."
 
   (setq shell-file-name "/bin/bash")
 
+  (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
+  (setq racer-rust-src-path "/Users/endrebakkenstovner/local/rustc-1.1.0/src/")
+  (setq racer-cmd "/Users/endrebakkenstovner/local/racer/target/release/racer")
+  (add-to-list 'load-path "/Users/endrebakkenstovner/local/racer/editors/emacs")
   )
 
 
@@ -142,7 +146,6 @@ layers configuration."
     t " mk" 'mk-minor-mode-map)
 
   (mk-minor-mode 1)
-
 
   ;; (defadvice yes-or-no-p (around prevent-dialog activate)
   ;;   "Prevent yes-or-no-p from activating a dialog"

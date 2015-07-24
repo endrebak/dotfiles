@@ -17,6 +17,8 @@
     <!-- Change the right option key to my super key. -->
     <!-- <autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::VK_MODIFIER_MY_SUPER</autogen> -->
 
+
+
     <autogen>
 	    __KeyOverlaidModifier__
 
@@ -77,13 +79,15 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::TAB, ModifierFlag::NONE, ModifierFlag::CONTROL_L,
-      KeyCode::W, ModifierFlag::CONTROL_L,
-    </autogen>
-    <autogen>
-      __KeyToKey__
       KeyCode::TAB, ModifierFlag::NONE, ModifierFlag::COMMAND_L,
       KeyCode::W, ModifierFlag::COMMAND_L,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::TAB, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::W, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -111,10 +115,17 @@
       KeyCode::E,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::Q, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::E,  ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::Q, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::E, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -142,6 +153,13 @@
       KeyCode::R,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::W, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::R, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::W, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
@@ -160,11 +178,14 @@
       KeyCode::F11,
     </autogen>
 
+
+
     <autogen>
       __KeyToKey__
-      KeyCode::E, ModifierFlag::NONE,
-      KeyCode::T,
+      KeyCode::E, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::T, ModifierFlag::CONTROL_R,
     </autogen>
+
 
     <autogen>
       __KeyToKey__
@@ -174,8 +195,8 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::W, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
-      KeyCode::R, ModifierFlag::SHIFT_R,
+      KeyCode::E, ModifierFlag::NONE,
+      KeyCode::T,
     </autogen>
 
     <autogen>
@@ -204,6 +225,13 @@
       KeyCode::A, ModifierFlag::COMMAND_L,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::CONTROL_L, ModifierFlag::CONTROL_R, ModifierFlag::CONTROL_L,
+      KeyCode::A, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::CONTROL_L, ModifierFlag::SHIFT_R, ModifierFlag::CONTROL_L,
@@ -227,6 +255,13 @@
       __KeyToKey__
       KeyCode::A, ModifierFlag::NONE,
       KeyCode::S,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::A, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::S, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -258,6 +293,13 @@
       __KeyToKey__
       KeyCode::S, ModifierFlag::NONE,
       KeyCode::D,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::S, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::D, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -292,6 +334,13 @@
       KeyCode::F,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::D, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::F, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::D, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
@@ -322,6 +371,13 @@
       __KeyToKey__
       KeyCode::F, ModifierFlag::NONE,
       KeyCode::Z,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::F, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::Z, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -355,10 +411,17 @@
       KeyCode::Q,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::SHIFT_L, ModifierFlag::NONE, ModifierFlag::SHIFT_R,  ModifierFlag::SHIFT_L,
       KeyCode::Q, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::SHIFT_L, ModifierFlag::NONE, ModifierFlag::CONTROL_R,  ModifierFlag::SHIFT_L,
+      KeyCode::Q, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -387,10 +450,17 @@
       KeyCode::G,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::BACKQUOTE, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::BACKQUOTE, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::G, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -415,6 +485,13 @@
       __KeyToKey__
       KeyCode::Z, ModifierFlag::NONE,
       KeyCode::C,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::Z, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::C, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -449,6 +526,13 @@
       KeyCode::V,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::X, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::V, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::X, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
@@ -478,6 +562,13 @@
       __KeyToKey__
       KeyCode::C, ModifierFlag::NONE,
       KeyCode::B,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::C, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::B, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -521,6 +612,13 @@
       KeyCode::U,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_7, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::U, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_7, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
@@ -551,6 +649,13 @@
       __KeyToKey__
       KeyCode::KEYPAD_8, ModifierFlag::NONE,
       KeyCode::I,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_8, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::I, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -585,6 +690,13 @@
       KeyCode::O,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_9, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::O, ModifierFlag::CONTROL_R,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_9, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
@@ -614,6 +726,13 @@
       __KeyToKey__
       KeyCode::KEYPAD_MINUS, ModifierFlag::NONE,
       KeyCode::X,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_MINUS, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::X, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -648,10 +767,17 @@
       KeyCode::H,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_4, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::H, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_4, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::H, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -680,10 +806,17 @@
       KeyCode::J,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_5, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::J, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_5, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::J, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -712,10 +845,17 @@
       KeyCode::K,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_6, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::K, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_6, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::K, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -744,10 +884,17 @@
       KeyCode::L,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_PLUS, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::L, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_PLUS, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::L, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -776,10 +923,17 @@
       KeyCode::N,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_1, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::N, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_1, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::N, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -809,10 +963,17 @@
       KeyCode::M,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_2, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::M, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_2, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::M, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -841,10 +1002,17 @@
       KeyCode::Y,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_3, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::Y, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_3, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::Y, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>
@@ -872,10 +1040,17 @@
       KeyCode::P,
     </autogen>
 
+
     <autogen>
       __KeyToKey__
       KeyCode::ENTER, ModifierFlag::NONE, ModifierFlag::SHIFT_R,
       KeyCode::P, ModifierFlag::SHIFT_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::ENTER, ModifierFlag::NONE, ModifierFlag::CONTROL_R,
+      KeyCode::P, ModifierFlag::CONTROL_R,
     </autogen>
 
     <autogen>

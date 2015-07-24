@@ -63,7 +63,7 @@
 
 	KeyCode::A, ModifierFlag::NONE,
 
-	KeyCode::CONTROL_L,
+	KeyCode::CONTROL_R,
 
 	KeyCode::S,
       </autogen>
@@ -82,7 +82,7 @@
 
 	KeyCode::KEYPAD_5, ModifierFlag::NONE,
 
-	KeyCode::CONTROL_L,
+	KeyCode::CONTROL_R,
 
 	KeyCode::J,
       </autogen>
