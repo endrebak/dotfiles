@@ -64,11 +64,27 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::KEYPAD_EQUAL,
+      KeyCode::KEYPAD_EQUAL, ModifierFlag::NONE,
       KeyCode::BACKSLASH,
     </autogen>
 
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_EQUAL, ModifierFlag::OPTION_L,
+      __{ KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_R, KeyCode::SPACE, }__
+    </autogen>
 
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_EQUAL, ModifierFlag::COMMAND_R,
+      KeyCode::KEY_7, ModifierFlag::SHIFT_R,  ModifierFlag::OPTION_R,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEY_3,
+      __{ KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_R, KeyCode::SPACE, }__
+    </autogen>
     <!-- hyper key settings -->
     <!-- regular keys -->
     <autogen>
