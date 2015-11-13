@@ -4,12 +4,6 @@
     <item>
       <appendix>Vimkeys with jklø</appendix>
       <identifier>private.vimkeys</identifier>
-      <autogen>
-        __KeyOverlaidModifier__
-        KeyCode::CURSOR_DOWN,
-        KeyCode::VK_MODIFIER_VIMKEYS,
-        KeyCode::TAB,
-      </autogen>
 
       <autogen>
         __KeyToKey__

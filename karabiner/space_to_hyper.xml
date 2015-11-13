@@ -17,20 +17,6 @@
     <!-- Change the right option key to my super key. -->
     <!-- <autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::VK_MODIFIER_MY_SUPER</autogen> -->
 
-
-
-    <autogen>
-	    __KeyOverlaidModifier__
-
-	    PointingButton::LEFT,
-
-	    KeyCode::SHIFT_L,
-
-	    PointingButton::LEFT,
-    </autogen>
-
-
-
     <autogen>
 
 	    __KeyOverlaidModifier__
@@ -40,6 +26,17 @@
 	    KeyCode::OPTION_L,
 
 	    KeyCode::SPACE, ModifierFlag::NONE,
+    </autogen>
+
+
+    <autogen>
+	    __KeyOverlaidModifier__
+
+	    KeyCode::CURSOR_DOWN,
+
+	    KeyCode::OPTION_R, ModifierFlag::SHIFT_L, ModifierFlag::COMMAND_L, ModifierFlag::NONE,
+
+	    KeyCode::TAB, ModifierFlag::NONE,
     </autogen>
 
     <autogen>
@@ -124,6 +121,13 @@
       KeyCode::F9,
     </autogen>
 
+    <autogen>
+      __KeyToKey__
+      KeyCode::TAB, ModifierFlag::OPTION_R, ModifierFlag::SHIFT_L, ModifierFlag::COMMAND_L, ModifierFlag::NONE,
+      __{ KeyCode::SPACE, KeyCode::K, KeyCode::VK_WAIT_10MS, KeyCode::E }__
+    </autogen>
+
+
 
     <autogen>
       __KeyToKey__
@@ -190,6 +194,12 @@
 
     <autogen>
       __KeyToKey__
+      KeyCode::W, ModifierFlag::COMMAND_L,
+      KeyCode::R, ModifierFlag::COMMAND_L,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
       KeyCode::W, ModifierFlag::OPTION_L,
       KeyCode::F11,
     </autogen>
@@ -219,6 +229,12 @@
       __KeyToKey__
       KeyCode::E, ModifierFlag::COMMAND_R,
       KeyCode::KEY_0, ModifierFlag::SHIFT_L,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::E, ModifierFlag::COMMAND_L,
+      KeyCode::T, ModifierFlag::COMMAND_L,
     </autogen>
 
     <autogen>
@@ -766,7 +782,7 @@
     <autogen>
       __KeyToKey__
       KeyCode::KEYPAD_MINUS, ModifierFlag::COMMAND_R,
-      KeyCode::KEY_5, ModifierFlag::SHIFT_R,
+      KeyCode::KEY_6, ModifierFlag::SHIFT_R,
     </autogen>
 
     <autogen>
@@ -1085,6 +1101,19 @@
       __KeyToKey__
       KeyCode::ENTER, ModifierFlag::COMMAND_R,
       KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R,
+    </autogen>
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_SLASH,
+      KeyCode::DELETE,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_0,
+      KeyCode::KEY_0,
     </autogen>
   </item>
 </root>

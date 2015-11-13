@@ -2,6 +2,9 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+;
+;; dotspacemacs-additional-packages
+;
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
@@ -11,14 +14,14 @@
    dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(emacs-lisp git rust python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github perspectives ace-jump-helm-line fasd)  ;;  avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
-
+   dotspacemacs-configuration-layers '(clojure emacs-lisp git python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github ace-jump-helm-line fasd vinegar unimpaired ov)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
+   dotspacemacs-additional-packages '(paredit)
    ;; A list of packages and/or extensions that will not be install and loaded.
    ;; dotspacemacs-excluded-packages '()
    ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages nil))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -64,7 +67,7 @@ before layers configuration."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX."
    dotspacemacs-fullscreen-use-non-native t
@@ -100,10 +103,10 @@ before layers configuration."
 
   (setq shell-file-name "/bin/bash")
 
-  (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
-  (setq racer-rust-src-path "/Users/endrebakkenstovner/local/rustc-1.1.0/src/")
-  (setq racer-cmd "/Users/endrebakkenstovner/local/racer/target/release/racer")
-  (add-to-list 'load-path "/Users/endrebakkenstovner/local/racer/editors/emacs")
+  ;; (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
+  ;; (setq racer-rust-src-path "/Users/endrebakkenstovner/local/rustc-1.1.0/src/")
+  ;; (setq racer-cmd "/Users/endrebakkenstovner/local/racer/target/release/racer")
+  ;; (add-to-list 'load-path "/Users/endrebakkenstovner/local/racer/editors/emacs")
   )
 
 
@@ -111,6 +114,8 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+
+  ;; (evilem-default-keybindings "<f8>")
 
   (defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
 
@@ -129,10 +134,17 @@ layers configuration."
   (define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
   (define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
   (define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
-  (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
+  ;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
   (define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
   (define-key mk-minor-mode-map (kbd "M-a") 'ace-window)
 
+  (define-key mk-minor-mode-map (kbd "M-C-w") 'sp-beginning-of-sexp)
+
+  ;; (define-key mk-minor-mode-map (kbd "<f9>") 'org-edit-src-code)
+  ;; (define-key mk-minor-mode-map (kbd "<f10>") 'org-edit-src-exit)
+
+  ;; (define-key mk-minor-mode-map (kbd "M-w") 'cider-repl-backward-input)
+  ;; (define-key mk-minor-mode-map (kbd "M-t") 'cider-repl-forward-input)
 
  (eval-after-load "helm"
    '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))

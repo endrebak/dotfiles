@@ -110,14 +110,15 @@
       KeyCode::VK_OPEN_URL_APP_Eventviewer,
     </autogen>
     <!-- This opens the currently selected text in slicereader -->
-    <!-- <autogen> -->
-    <!--   __KeyToKey__ -->
-    <!--   KeyCode::Q, ModifierFlag::OPEN_APPS, -->
-    <!--   KeyCode::VK_OPEN_URL_APP_Keynote, -->
-    <!-- </autogen> -->
     <autogen>
       __KeyToKey__
-      KeyCode::SEMICOLON, ModifierFlag::OPEN_APPS,
+      KeyCode::SHIFT_L, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Keynote,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_7, ModifierFlag::OPEN_APPS,
       KeyCode::VK_OPEN_URL_APP_Ibooks,
     </autogen>
 
@@ -137,7 +138,7 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::F, ModifierFlag::OPEN_APPS,
+      KeyCode::KEYPAD_1, ModifierFlag::OPEN_APPS,
 
       __ { KeyCode::VK_OPEN_URL_APP_Dash, KeyCode::L, ModifierFlag::COMMAND_L, }__
     </autogen>
@@ -167,6 +168,13 @@
 
       KeyCode::VK_OPEN_URL_APP_Emacs,
     </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_8, ModifierFlag::OPEN_APPS,
+
+      KeyCode::VK_OPEN_URL_APP_Kindle,
+    </autogen>
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::OPEN_APPS,
@@ -191,10 +199,10 @@
       <autogen>
         __KeyToKey__
 
-        KeyCode::Q,
+        KeyCode::C,
         ModifierFlag::OPEN_APPS,
 
-        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::COMMAND_L,
+        KeyCode::VK_OPEN_URL_APP_Kindle,
       </autogen>
       <autogen>
         __KeyToKey__
