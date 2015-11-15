@@ -34,7 +34,7 @@
 
 	    KeyCode::CURSOR_DOWN,
 
-	    KeyCode::OPTION_R, ModifierFlag::SHIFT_L, ModifierFlag::COMMAND_L, ModifierFlag::NONE,
+	    KeyCode::VK_MODIFIER_MY_HYPER,
 
 	    KeyCode::TAB, ModifierFlag::NONE,
     </autogen>
@@ -119,12 +119,6 @@
       __KeyToKey__
       KeyCode::TAB, ModifierFlag::OPTION_L,
       KeyCode::F9,
-    </autogen>
-
-    <autogen>
-      __KeyToKey__
-      KeyCode::TAB, ModifierFlag::OPTION_R, ModifierFlag::SHIFT_L, ModifierFlag::COMMAND_L, ModifierFlag::NONE,
-      __{ KeyCode::SPACE, KeyCode::K, KeyCode::VK_WAIT_10MS, KeyCode::E }__
     </autogen>
 
 
@@ -986,7 +980,6 @@
       KeyCode::KEYPAD_1, ModifierFlag::COMMAND_R,
       KeyCode::KEY_8, ModifierFlag::OPTION_R,
     </autogen>
-
 
 
     <autogen>

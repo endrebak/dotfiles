@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+
+    <appendix>Use down as modifier key for emacs smartparens</appendix>
+    <identifier>private.emacs_smartparens</identifier>
+    <only>EMACS</only>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::TAB, ModifierFlag::MY_HYPER,
+      __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::W }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_1, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::N }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_2, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::M }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_3, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::Y }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_4, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::H }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_5, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::J }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_6, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::K }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_7, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::U }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_8, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::I }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_9, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::O }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::ENTER, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::P }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_PLUS, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::L }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::KEYPAD_MINUS, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::X }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::CONTROL_L, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::A }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::B, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::B }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::C, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::C }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::D, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::F }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::Q, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::E }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::F, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::Z }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::SHIFT_L, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::Q }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::E, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::T }__
+    </autogen>
+
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::S, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::D }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::W, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::R }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::X, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::V }__
+    </autogen>
+
+    <autogen>
+    __KeyToKey__
+    KeyCode::Z, ModifierFlag::MY_HYPER,
+    __{ KeyCode::SPACE, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::C }__
+    </autogen>
+
+    </item>
+
+</root>

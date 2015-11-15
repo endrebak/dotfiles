@@ -90,7 +90,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; If non nil advises quit functions to keep server open when quitting.
    dotspacemacs-persistent-server nil
    ;; The default package repository used if no explicit repository has been
@@ -110,164 +110,183 @@ before layers configuration."
   )
 
 
-(defun dotspacemacs/config ()
-  "Configuration function.
+defun dotspacemacs/config ()
+"Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
-  ;; (evilem-default-keybindings "<f8>")
+;; (evilem-default-keybindings "<f8>")
 
-  (defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
+(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
 
-  ;; Switch window with M-o
-  (define-key mk-minor-mode-map (kbd "M-o") 'other-window)
+;; Switch window with M-o
+(define-key mk-minor-mode-map (kbd "M-o") 'other-window)
 
-  ;; Invoke fasd find fiile
-  (define-key mk-minor-mode-map (kbd "M-f") 'fasd-find-file)
+;; Invoke fasd find fiile
+(define-key mk-minor-mode-map (kbd "M-f") 'fasd-find-file)
 
-  ;; Invoke fasd find fiile
-  (define-key mk-minor-mode-map (kbd "M-p") 'helm-projectile)
+;; Invoke fasd find fiile
+(define-key mk-minor-mode-map (kbd "M-p") 'helm-projectile)
 
-  ;; Save with M-s
-  (define-key mk-minor-mode-map (kbd "M-s") 'save-buffer)
+;; Save with M-s
+(define-key mk-minor-mode-map (kbd "M-s") 'save-buffer)
 
-  (define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
-  (define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
-  (define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
-  ;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
-  (define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
-  (define-key mk-minor-mode-map (kbd "M-a") 'ace-window)
+(define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
+(define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
+(define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
+;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
+(define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
+(define-key mk-minor-mode-map (kbd "M-a") 'ace-window)
 
-  (define-key mk-minor-mode-map (kbd "M-C-w") 'sp-beginning-of-sexp)
+(define-key mk-minor-mode-map (kbd "M-C-w") 'sp-beginning-of-sexp)
 
-  ;; (define-key mk-minor-mode-map (kbd "<f9>") 'org-edit-src-code)
-  ;; (define-key mk-minor-mode-map (kbd "<f10>") 'org-edit-src-exit)
+;; (define-key mk-minor-mode-map (kbd "<f9>") 'org-edit-src-code)
+;; (define-key mk-minor-mode-map (kbd "<f10>") 'org-edit-src-exit)
 
-  ;; (define-key mk-minor-mode-map (kbd "M-w") 'cider-repl-backward-input)
-  ;; (define-key mk-minor-mode-map (kbd "M-t") 'cider-repl-forward-input)
+;; (define-key mk-minor-mode-map (kbd "M-w") 'cider-repl-backward-input)
+;; (define-key mk-minor-mode-map (kbd "M-t") 'cider-repl-forward-input)
 
- (eval-after-load "helm"
-   '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))
+(eval-after-load "helm"
+  '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))
 
+;; Movement
+;; (evil-leader/set-key "ol" 'sp-forward-sexp)
+;; (evil-leader/set-key "oh" 'sp-backward-sexp)
+;; (evil-leader/set-key "ok" 'sp-down-sexp)
+;; (evil-leader/set-key "oj" 'sp-up-sexp)
 
-  ;; Do not automatically write ) after (
-  (smartparens-global-mode nil)
-
-  (define-minor-mode mk-minor-mode
-    "A minor mode so that my key settings override annoying major modes."
-    t " mk" 'mk-minor-mode-map)
-
-  (mk-minor-mode 1)
-
-  ;; (defadvice yes-or-no-p (around prevent-dialog activate)
-  ;;   "Prevent yes-or-no-p from activating a dialog"
-  ;;   (let ((use-dialog-box nil))
-  ;;     ad-do-it))
-  ;; (defadvice y-or-n-p (around prevent-dialog-yorn activate)
-  ;;   "Prevent y-or-n-p from activating a dialog"
-  ;;   (let ((use-dialog-box nil))
-  ;;     ad-do-it))
-
-
-  ;; Make screen grey when using avy
-  (setq avy-background t)
-  (setq avy-highlight-first nil)
-  (setq avy-all-windows t)
-
-  ;; Make decision trees less weird at the expense of terseness
-  (setq avy-style 'de-bruijn)
-  (setq avy-timeout-seconds 0.3)
-
-  ;; Display avy chars in uppercase but enter in lower
-  (setq avy-keys
-        '(?A ?S ?D ?F ?J ?K ?L ?Ø))
-  (setq avy-translate-char-function #'upcase)
-
-  ;; Make alt-key work as normal
-  (setq default-input-method "MacOSX")
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'nil)
-
-  ;; Use home row keys for various movements
-  (define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
-  (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
-  (define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
-  (define-key evil-normal-state-map (kbd "<f4>") 'spacemacs/previous-useful-buffer)
-  (define-key evil-normal-state-map "K" 'kill-this-buffer)
-  (define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
-  (define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-  (define-key evil-normal-state-map "j" 'pop-to-mark-command)
-  (define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
-  (define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
-  (define-key evil-normal-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-  (define-key evil-normal-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-  ;; (define-key evil-normal-state-map (kbd "M-j") 'sp-backward-symbol)
-  ;; (define-key evil-normal-state-map (kbd "M-ø") 'forward-symbol)
-
-  ;; (define-key evil-visual-state-map "l" 'avy-goto-line)
-  (define-key evil-visual-state-map (kbd "<down>") 'evil-next-line)
-  (define-key evil-visual-state-map (kbd "<up>") 'evil-previous-line)
-  (define-key evil-visual-state-map (kbd "<f5>") 'avy-goto-char-timer)
-  (define-key evil-visual-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-  (define-key evil-visual-state-map (kbd "C-l") 'evil-backward-paragraph)
-  (define-key evil-visual-state-map (kbd "C-k") 'evil-forward-paragraph)
-  (define-key evil-visual-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-  (define-key evil-visual-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-  ;; (define-key evil-visual-state-map (kbd "M-j") 'sp-backward-symbol)
-  ;; (define-key evil-visual-state-map (kbd "M-ø") 'forward-symbol)
+(evil-leader/set-key "ow" 'sp-splice-sexp)
+(evil-leader/set-key "oe" 'sp-splice-sexp-killing-forward)
+(evil-leader/set-key "or" 'sp-splice-sexp-killing-backward)
+(evil-leader/set-key "ot" 'sp-splice-sexp-killing-around)
+(evil-leader/set-key "os" 'sp-kill-sexp)
+(evil-leader/set-key "oa" 'sp-backward-kill-sexp)
+(evil-leader/set-key "od" 'sp-backward-copy-sexp)
+(evil-leader/set-key "of" 'sp-copy-sexp)
+(evil-leader/set-key "oq" 'sp-backward-unwrap-sexp)
+(evil-leader/set-key "oc" 'sp-unwrap-sexp)
+(evil-leader/set-key "oz" 'sp-transpose-sexp)
 
 
-  ;; (define-key evil-motion-state-map "l" 'avy-goto-line)
-  (define-key evil-motion-state-map "k" 'evil-next-line)
-  (define-key evil-motion-state-map "l" 'evil-previous-line)
-  ;; (define-key evil-motion-state-map "k" 'avy-goto-word-or-subword-1)
-  (define-key evil-motion-state-map (kbd "<f5>") 'avy-goto-char-timer)
-  (define-key evil-motion-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-  (define-key evil-motion-state-map (kbd "C-l") 'evil-backward-paragraph)
-  (define-key evil-motion-state-map (kbd "C-k") 'evil-forward-paragraph)
-  (define-key evil-motion-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-  (define-key evil-motion-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-  ;; (define-key evil-motion-state-map (kbd "M-j") 'sp-backward-symbol)
-  ;; (define-key evil-motion-state-map (kbd "M-ø") 'forward-symbol)
+
+;; Do not automatically write ) after (
+(smartparens-global-mode nil)
+
+(define-minor-mode mk-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " mk" 'mk-minor-mode-map)
+
+(mk-minor-mode 1)
+
+;; (defadvice yes-or-no-p (around prevent-dialog activate)
+;;   "Prevent yes-or-no-p from activating a dialog"
+;;   (let ((use-dialog-box nil))
+;;     ad-do-it))
+;; (defadvice y-or-n-p (around prevent-dialog-yorn activate)
+;;   "Prevent y-or-n-p from activating a dialog"
+;;   (let ((use-dialog-box nil))
+;;     ad-do-it))
 
 
-  (define-key evil-insert-state-map (kbd "<f5>") 'avy-goto-char-timer)
-  (define-key evil-insert-state-map (kbd "<f7>") 'yas-expand)
+;; Make screen grey when using avy
+(setq avy-background t)
+(setq avy-highlight-first nil)
+(setq avy-all-windows t)
+
+;; Make decision trees less weird at the expense of terseness
+(setq avy-style 'de-bruijn)
+(setq avy-timeout-seconds 0.3)
+
+;; Display avy chars in uppercase but enter in lower
+(setq avy-keys
+      '(?A ?S ?D ?F ?J ?K ?L ?Ø))
+(setq avy-translate-char-function #'upcase)
+
+;; Make alt-key work as normal
+(setq default-input-method "MacOSX")
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'nil)
+
+;; Use home row keys for various movements
+(define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
+(define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
+(define-key evil-normal-state-map (kbd "<f4>") 'spacemacs/previous-useful-buffer)
+(define-key evil-normal-state-map "K" 'kill-this-buffer)
+(define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
+(define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+(define-key evil-normal-state-map "j" 'pop-to-mark-command)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
+(define-key evil-normal-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+(define-key evil-normal-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+;; (define-key evil-normal-state-map (kbd "M-j") 'sp-backward-symbol)
+;; (define-key evil-normal-state-map (kbd "M-ø") 'forward-symbol)
+
+;; (define-key evil-visual-state-map "l" 'avy-goto-line)
+(define-key evil-visual-state-map (kbd "<down>") 'evil-next-line)
+(define-key evil-visual-state-map (kbd "<up>") 'evil-previous-line)
+(define-key evil-visual-state-map (kbd "<f5>") 'avy-goto-char-timer)
+(define-key evil-visual-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+(define-key evil-visual-state-map (kbd "C-l") 'evil-backward-paragraph)
+(define-key evil-visual-state-map (kbd "C-k") 'evil-forward-paragraph)
+(define-key evil-visual-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+(define-key evil-visual-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+;; (define-key evil-visual-state-map (kbd "M-j") 'sp-backward-symbol)
+;; (define-key evil-visual-state-map (kbd "M-ø") 'forward-symbol)
 
 
-  ;; prettier font
-  (set-face-attribute 'default nil
-                      :family "Inconsolata" :height 150 :weight 'normal)
-
-  ;; To avoid pixellated powerline
-  (setq powerline-default-separator 'rounded)
-
-  ;; Make evil-snipe override evil fFtT;,
-  (evil-snipe-mode 1)
-  (setq evil-snipe-override-mode t)
-  (setq evil-snipe-repeat-keys t)
-  (setq evil-snipe-scope 'whole-buffer)
-  (setq evil-snipe-repeat-scope 'whole-buffer)
-  (setq evil-snipe-auto-scroll nil)
-
-  ;; do not need to reload buffers to see git branch change
-  (global-auto-revert-mode 1)
-  (setq auto-revert-check-vc-info t)
+;; (define-key evil-motion-state-map "l" 'avy-goto-line)
+(define-key evil-motion-state-map "k" 'evil-next-line)
+(define-key evil-motion-state-map "l" 'evil-previous-line)
+;; (define-key evil-motion-state-map "k" 'avy-goto-word-or-subword-1)
+(define-key evil-motion-state-map (kbd "<f5>") 'avy-goto-char-timer)
+(define-key evil-motion-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+(define-key evil-motion-state-map (kbd "C-l") 'evil-backward-paragraph)
+(define-key evil-motion-state-map (kbd "C-k") 'evil-forward-paragraph)
+(define-key evil-motion-state-map (kbd "M-l") 'evil-backward-indentation-begin)
+(define-key evil-motion-state-map (kbd "M-k") 'evil-forward-indentation-begin)
+;; (define-key evil-motion-state-map (kbd "M-j") 'sp-backward-symbol)
+;; (define-key evil-motion-state-map (kbd "M-ø") 'forward-symbol)
 
 
-  ;; Turn off the tildes in the fringe
-  (global-vi-tilde-fringe-mode -1)
+(define-key evil-insert-state-map (kbd "<f5>") 'avy-goto-char-timer)
+(define-key evil-insert-state-map (kbd "<f7>") 'yas-expand)
 
-  ;;DELETE trailing whitespace on save
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-  (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
+;; prettier font
+(set-face-attribute 'default nil
+                    :family "Inconsolata" :height 150 :weight 'normal)
 
-  (setq org-agenda-files '("~/Dropbox/Org/"))
+;; To avoid pixellated powerline
+(setq powerline-default-separator 'rounded)
 
-  (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+;; Make evil-snipe override evil fFtT;,
+(evil-snipe-mode 1)
+(setq evil-snipe-override-mode t)
+(setq evil-snipe-repeat-keys t)
+(setq evil-snipe-scope 'whole-buffer)
+(setq evil-snipe-repeat-scope 'whole-buffer)
+(setq evil-snipe-auto-scroll nil)
 
-  (setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets")))
+;; do not need to reload buffers to see git branch change
+(global-auto-revert-mode 1)
+(setq auto-revert-check-vc-info t)
+
+
+;; Turn off the tildes in the fringe
+(global-vi-tilde-fringe-mode -1)
+
+;;DELETE trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
+
+(setq org-agenda-files '("~/Dropbox/Org/"))
+
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+
+(setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets"))
 
 ;; (defun custom-persp/python ()
 ;;   (interactive)
