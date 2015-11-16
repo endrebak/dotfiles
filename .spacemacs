@@ -110,7 +110,7 @@ before layers configuration."
   )
 
 
-defun dotspacemacs/config ()
+(defun dotspacemacs/config ()
 "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -163,14 +163,47 @@ layers configuration."
 (evil-leader/set-key "oa" 'sp-backward-kill-sexp)
 (evil-leader/set-key "od" 'sp-backward-copy-sexp)
 (evil-leader/set-key "of" 'sp-copy-sexp)
-(evil-leader/set-key "oq" 'sp-backward-unwrap-sexp)
-(evil-leader/set-key "oc" 'sp-unwrap-sexp)
 (evil-leader/set-key "oz" 'sp-transpose-sexp)
+(evil-leader/set-key "oq" 'sp-backward-unwrap-sexp)
+(evil-leader/set-key "og" 'sp-unwrap-sexp)
+(evil-leader/set-key "oc" 'sp-convolute-sexp)
+(evil-leader/set-key "ov" 'sp-absorb-sexp)
+(evil-leader/set-key "ob" 'sp-emit-sexp)
+(evil-leader/set-key "ou" 'sp-extract-before-sexp)
+(evil-leader/set-key "oi" 'sp-extract-after-sexp)
+(evil-leader/set-key "oo" 'sp-split-sexp)
+(evil-leader/set-key "ox" 'sp-join-sexp)
+(evil-leader/set-key "oh" 'sp-rewrap-sexp)
+(evil-leader/set-key "oj" 'sp-swap-enclosing-sexp)
+(evil-leader/set-key "ol" 'sp-forward-slurp-sexp)
+(evil-leader/set-key "ok" 'sp-backward-slurp-sexp)
+(evil-leader/set-key "on" 'sp-backward-barf-sexp)
+(evil-leader/set-key "om" 'sp-forward-barf-sexp)
+(evil-leader/set-key "oy" 'sp-add-to-previous-sexp)
+(evil-leader/set-key "op" 'sp-add-to-next-sexp)
+
+(evil-leader/set-key "mow" 'sp-backward-sexp)
+(evil-leader/set-key "moe" 'sp-forward-sexp)
+(evil-leader/set-key "mor" 'sp-down-sexp)
+(evil-leader/set-key "mot" 'sp-up-sexp)
+(evil-leader/set-key "moa" 'sp-backward-down-sexp)
+(evil-leader/set-key "mos" 'sp-backward-up-sexp)
+(evil-leader/set-key "mod" 'sp-previous-sexp)
+(evil-leader/set-key "mof" 'sp-next-sexp)
+(evil-leader/set-key "moq" 'sp-end-of-sexp)
+(evil-leader/set-key "mog" 'sp-beginning-of-sexp)
+(evil-leader/set-key "mov" 'sp-beginning-of-previous-sexp)
+(evil-leader/set-key "mob" 'sp-beginning-of-next-sexp)
+(evil-leader/set-key "mou" 'sp-end-of-previous-sexp)
+(evil-leader/set-key "moi" 'sp-end-of-next-sexp)
+
+
+
 
 
 
 ;; Do not automatically write ) after (
-(smartparens-global-mode nil)
+(smartparens-global-mode t)
 
 (define-minor-mode mk-minor-mode
   "A minor mode so that my key settings override annoying major modes."
@@ -324,4 +357,4 @@ layers configuration."
  '(avy-lead-face-2 ((t (:background "DeepSkyBlue3" :foreground "white"))))
  '(aw-leading-char-face ((t (:foreground "red" :height 15.0))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))))

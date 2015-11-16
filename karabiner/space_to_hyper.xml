@@ -42,6 +42,16 @@
     <autogen>
 	    __KeyOverlaidModifier__
 
+	    KeyCode::COMMAND_L,
+
+	    KeyCode::VK_MODIFIER_MY_SUPER,
+
+	    KeyCode::TAB, ModifierFlag::NONE,
+    </autogen>
+
+    <autogen>
+	    __KeyOverlaidModifier__
+
 	    KeyCode::CURSOR_RIGHT,
 
 	    KeyCode::COMMAND_R, ModifierFlag::COMMAND_R,
