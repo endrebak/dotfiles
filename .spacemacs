@@ -14,10 +14,10 @@
    dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-test-runner 'pytest python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) ess)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
+   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-test-runner 'pytest python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) ess fasd)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
 
 
-   dotspacemacs-additional-packages '(evil-vimish-fold)
+   dotspacemacs-additional-packages '(py-isort)
    ;; A list of packages and/or extensions that will not be install and loaded.
    ;; dotspacemacs-excluded-packages '()
    ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -134,10 +134,12 @@ layers configuration."
 
 
 (defun run-pytest-on-save ()
-    (if (eq major-mode 'python-mode)
-        (pytest-module "-vv")))
+  (interactive)
+  (if (eq major-mode 'python-mode)
+      (pytest-module "-vv")))
 
-(add-hook 'after-save-hook 'run-pytest-on-save)
+;; (add-hook 'after-save-hook 'run-pytest-on-save)
+;; (remove-hook 'after-save-hook 'run-pytest-on-save)
 
 (defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
 
@@ -155,6 +157,7 @@ layers configuration."
 
 (define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
 (define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
+(define-key mk-minor-mode-map (kbd "M-t") 'run-pytest-on-save)
 (define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
 ;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
 (define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
@@ -287,10 +290,22 @@ already narrowed."
         (t (narrow-to-defun))))
 
 
+;; (defun shell-command-on-buffer ()
+;;   "Asks for a command and executes it in inferior shell with current buffer
+;; as input."
+;;   (interactive)
+;;   (shell-command-on-buffer
+;;    (point-min) (point-max)
+;;    (read-shell-command "shell command on buffer: ")))
 ;; (setq narrow-to-defun-or-widen-next-command )
 ;; (defun narrow-to-defun-or-widen ()
 ;;   (if )
 ;;     )
+
+(defun move-imports-to-top-of-file ()
+  (interactive)
+  (if (eq major-mode 'python-mode)
+       (call-process-region (point-min) (point-max) "python /Users/endrebakkenstovner/code/move_imports/moveimports.py")))
 
 ;; Use home row keys for various movements
 (define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0

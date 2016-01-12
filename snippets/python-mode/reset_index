@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: reset_index_drop_true
+# key: rx
+# --
+reset_index()
+$0

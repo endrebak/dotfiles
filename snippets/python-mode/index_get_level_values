@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: index_get_level_values
+# key: xg
+# --
+index.get_level_values("$0")

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: subproccess_call
+# key: sc
+# --
+
+from subprocess import call
+
+subprocess.call("$0", ${1:shell=True})

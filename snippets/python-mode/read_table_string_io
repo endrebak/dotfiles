@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: read_table_string_io
+# key: rts
+# --
+pd.read_table(StringIO(${1:"""$0"""}), ${2:sep=${3:"\s+"}})

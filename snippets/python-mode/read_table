@@ -1,6 +1,5 @@
 # -*- mode: snippet -*-
 # name: read_table
-# key: rd
-# group: pandas
+# key: rt
 # --
-pd.DataFrame.read_table(${1:filepath_or_buffer}, sep=${2:"\t"}, engine="${3:python}", header=${4:None}, index_col=${5:0})
+pd.read_table($1, ${2:sep=${3:"\s+"}})

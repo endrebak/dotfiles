@@ -1,7 +1,5 @@
 # -*- mode: snippet -*-
 # name: stringio
 # key: si
-# group : definitions
 # --
-StringIO(u"${1:stringy}")
-$0
+StringIO("""$1""")

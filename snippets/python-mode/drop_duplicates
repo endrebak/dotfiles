@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: drop_duplicates
+# key: dd
+# --
+drop_duplicates()
+$0
