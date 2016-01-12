@@ -112,7 +112,7 @@
     <autogen>
     __KeyToKey__
     KeyCode::C, ModifierFlag::MY_HYPER,
-    __{ KeyCode::M, ModifierFlag::COMMAND_L, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::C }__
+    __{ KeyCode::M, ModifierFlag::COMMAND_L, KeyCode::O, KeyCode::VK_WAIT_10MS, KeyCode::B }__
     </autogen>
 
     <autogen>

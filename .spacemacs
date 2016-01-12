@@ -14,14 +14,16 @@
    dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(clojure emacs-lisp git python auto-completion org syntax-checking themes-megapack markdown evil-snipe ess github ace-jump-helm-line fasd vinegar unimpaired ov)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
-   dotspacemacs-additional-packages '(paredit)
+   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-test-runner 'pytest python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) ess)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
+
+
+   dotspacemacs-additional-packages '(evil-vimish-fold)
    ;; A list of packages and/or extensions that will not be install and loaded.
    ;; dotspacemacs-excluded-packages '()
    ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages nil))
+   dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -90,7 +92,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    ;; If non nil advises quit functions to keep server open when quitting.
    dotspacemacs-persistent-server nil
    ;; The default package repository used if no explicit repository has been
@@ -99,11 +101,19 @@ before layers configuration."
    dotspacemacs-default-package-repository nil)
   ;; User initialization goes here
 
-  (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
+  ;; (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
 
   (setq shell-file-name "/bin/bash")
 
   ;; (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
+  ;; (add-hook 'rust-mode-hook #'racer-mode)
+  ;; (add-hook 'racer-mode-hook #'eldoc-mode)
+
+
+  ;; (add-hook 'racer-mode-hook #'company-mode)
+
+  ;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+  ;; (setq company-tooltip-align-annotations t)
   ;; (setq racer-rust-src-path "/Users/endrebakkenstovner/local/rustc-1.1.0/src/")
   ;; (setq racer-cmd "/Users/endrebakkenstovner/local/racer/target/release/racer")
   ;; (add-to-list 'load-path "/Users/endrebakkenstovner/local/racer/editors/emacs")
@@ -115,7 +125,19 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
+; dont prompt to eval ipython
+;; (setq org-confirm-babel-evaluate nil)
+; let keyword ipython be evaluated
+;(add-to-list 'org-src-lang-modes '("ipython" . python))
+
 ;; (evilem-default-keybindings "<f8>")
+
+
+(defun run-pytest-on-save ()
+    (if (eq major-mode 'python-mode)
+        (pytest-module "-vv")))
+
+(add-hook 'after-save-hook 'run-pytest-on-save)
 
 (defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
 
@@ -146,8 +168,10 @@ layers configuration."
 ;; (define-key mk-minor-mode-map (kbd "M-w") 'cider-repl-backward-input)
 ;; (define-key mk-minor-mode-map (kbd "M-t") 'cider-repl-forward-input)
 
+
 (eval-after-load "helm"
   '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))
+
 
 ;; Movement
 ;; (evil-leader/set-key "ol" 'sp-forward-sexp)
@@ -165,8 +189,8 @@ layers configuration."
 (evil-leader/set-key "of" 'sp-copy-sexp)
 (evil-leader/set-key "oz" 'sp-transpose-sexp)
 (evil-leader/set-key "oq" 'sp-backward-unwrap-sexp)
-(evil-leader/set-key "og" 'sp-unwrap-sexp)
-(evil-leader/set-key "oc" 'sp-convolute-sexp)
+(evil-leader/set-key "og" 'sp-convolute-sexp)
+(evil-leader/set-key "oc" 'sp-unwrap-sexp)
 (evil-leader/set-key "ov" 'sp-absorb-sexp)
 (evil-leader/set-key "ob" 'sp-emit-sexp)
 (evil-leader/set-key "ou" 'sp-extract-before-sexp)
@@ -198,19 +222,14 @@ layers configuration."
 (evil-leader/set-key "moi" 'sp-end-of-next-sexp)
 
 
-
-
-
-
 ;; Do not automatically write ) after (
-(smartparens-global-mode t)
+(smartparens-global-mode nil)
 
 (define-minor-mode mk-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   t " mk" 'mk-minor-mode-map)
 
 (mk-minor-mode 1)
-
 ;; (defadvice yes-or-no-p (around prevent-dialog activate)
 ;;   "Prevent yes-or-no-p from activating a dialog"
 ;;   (let ((use-dialog-box nil))
@@ -220,6 +239,7 @@ layers configuration."
 ;;   (let ((use-dialog-box nil))
 ;;     ad-do-it))
 
+(setq evil-ex-substitute-global t)
 
 ;; Make screen grey when using avy
 (setq avy-background t)
@@ -240,7 +260,40 @@ layers configuration."
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'nil)
 
+
+(defun narrow-or-widen-dwim (p)
+  "Widen if buffer is narrowed, narrow-dwim otherwise.
+Dwim means: region, org-src-block, org-subtree, or defun,
+whichever applies first. Narrowing to org-src-block actually
+calls `org-edit-src-code'.
+
+With prefix P, don't widen, just narrow even if buffer is
+already narrowed."
+  (interactive "P")
+  (declare (interactive-only))
+  (cond ((and (buffer-narrowed-p) (not p)) (widen))
+        ((region-active-p)
+         (narrow-to-region (region-beginning) (region-end)))
+        ((derived-mode-p 'org-mode)
+         ;; `org-edit-src-code' is not a real narrowing
+         ;; command. Remove this first conditional if you
+         ;; don't want it.
+         (cond ((ignore-errors (org-edit-src-code))
+                (delete-other-windows))
+               ((ignore-errors (org-narrow-to-block) t))
+               (t (org-narrow-to-subtree))))
+        ((derived-mode-p 'latex-mode)
+         (LaTeX-narrow-to-environment))
+        (t (narrow-to-defun))))
+
+
+;; (setq narrow-to-defun-or-widen-next-command )
+;; (defun narrow-to-defun-or-widen ()
+;;   (if )
+;;     )
+
 ;; Use home row keys for various movements
+(define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0
 (define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
 (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
 (define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
@@ -248,6 +301,12 @@ layers configuration."
 (define-key evil-normal-state-map "K" 'kill-this-buffer)
 (define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
 (define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+(define-key evil-normal-state-map (kbd "<f7>") 'whitespace-mode)
+(define-key evil-normal-state-map (kbd "<f8>") 'helm-swoop)
+(define-key evil-normal-state-map (kbd "<f9>") 'spacemacs/helm-swoop-region-or-symbol)
+(define-key evil-normal-state-map (kbd "<f10>") 'narrow-or-widen-dwim)
+(define-key evil-normal-state-map (kbd "<f11>") 'widen)
+(define-key evil-normal-state-map (kbd "<f12>") 'eval-expression)
 (define-key evil-normal-state-map "j" 'pop-to-mark-command)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
@@ -295,12 +354,12 @@ layers configuration."
 (setq powerline-default-separator 'rounded)
 
 ;; Make evil-snipe override evil fFtT;,
-(evil-snipe-mode 1)
-(setq evil-snipe-override-mode t)
-(setq evil-snipe-repeat-keys t)
-(setq evil-snipe-scope 'whole-buffer)
-(setq evil-snipe-repeat-scope 'whole-buffer)
-(setq evil-snipe-auto-scroll nil)
+;; (evil-snipe-mode 1)
+;; (setq evil-snipe-override-mode t)
+;; (setq evil-snipe-repeat-keys t)
+;; (setq evil-snipe-scope 'whole-buffer)
+;; (setq evil-snipe-repeat-scope 'whole-buffer)
+;; (setq evil-snipe-auto-scroll nil)
 
 ;; do not need to reload buffers to see git branch change
 (global-auto-revert-mode 1)
@@ -319,8 +378,11 @@ layers configuration."
 
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
-(setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets"))
+(setq evil-snipe-enable-alternate-f-and-t-behaviors t)
 
+(setq-default dotspacemacs-configuration-layers '(evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t ))
+;; (setq-default dotspacemacs-configuration-layers
+;;               '((c-c++ :variables c-c++-enable-clang-support t)))
 ;; (defun custom-persp/python ()
 ;;   (interactive)
 ;;   (custom-persp "python"
