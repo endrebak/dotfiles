@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: with_open_read_lines
+# key: wl
+# group : control structure
+# --
+with open(${1:infile}) as ${2:file_handle}:
+    for line in $2:
+        $0

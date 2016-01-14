@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: with_open
+# key: w
+# group : control structure
+# --
+with open(${1:expr}) as ${2:file_handle}:
+    $0

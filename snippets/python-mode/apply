@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: apply
+# key: ap
+# --
+apply($1, axis=${2:1})

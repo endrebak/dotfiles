@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: test_class
-# key: tcs
-# group : testing
+# name: new_file
+# key: nf
+# group : general
 # --
 import pytest
 
@@ -23,7 +23,7 @@ def expected_result():
 
 
 def ${1:name}($2):
-    \"\"\"${3:Description as imperative command ending in a period.}
+    \"\"\"${3:Write description as command ending in a period.}
 
     ${2:$(python-args-to-docstring)}
     \"\"\"

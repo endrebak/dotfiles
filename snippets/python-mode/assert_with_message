@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: assert_with_message
+# key: am
+# group: testing
+# --
+assert $1, "$0"

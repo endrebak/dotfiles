@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: widediaper
+# key: wd
+# group : general
+# --
+from widediaper import R
+$0

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: function_docstring
+# key: fd
+# group: definitions
+# --
+def ${1:name}($2):
+    \"\"\"${3:Write description as command ending in a period.}
+
+    ${2:$(python-args-to-docstring)}
+    \"\"\"
+    $0

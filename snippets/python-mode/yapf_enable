@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: yapf_enable
+# key: ye
+# --
+# yapf: enable
+$0

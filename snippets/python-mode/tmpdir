@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: tmpdir_fixture
+# key: tm
+# --
+@pytest.fixture
+def ${1:tmpfile}(tmpdir):
+    f = tmpdir.join("${2:filename}")
+    f.write("${3:content}")
+
+    return str(f)

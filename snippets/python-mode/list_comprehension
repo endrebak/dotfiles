@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: list_comprehension
+# key: lc
+# group : definitions
+# --
+[${1:el}$0 for $1 in ${2:list}]

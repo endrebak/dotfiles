@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: fixture
+# key: fx
+# group: definitions
+# --
+@pytest.fixture
+def ${1:fun}(${2:args}):
+    $0

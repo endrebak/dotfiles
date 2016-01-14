@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pytest_mark
+# key: pt
+# group: definitions
+# --
+@pytest.mark.$0

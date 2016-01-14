@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: print_to_csv
+# key: pc
+# --
+print(${1:df}.to_csv(sep=" "))

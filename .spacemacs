@@ -305,7 +305,7 @@ already narrowed."
 (defun move-imports-to-top-of-file ()
   (interactive)
   (if (eq major-mode 'python-mode)
-       (call-process-region (point-min) (point-max) "python /Users/endrebakkenstovner/code/move_imports/moveimports.py")))
+      (call-process-region (point-min) (point-max) "python" t t nil "/Users/endrebakkenstovner/code/move_imports/moveimports.py")))
 
 ;; Use home row keys for various movements
 (define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0
@@ -316,10 +316,10 @@ already narrowed."
 (define-key evil-normal-state-map "K" 'kill-this-buffer)
 (define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
 (define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-(define-key evil-normal-state-map (kbd "<f7>") 'whitespace-mode)
+(define-key evil-normal-state-map (kbd "<f7>") 'narrow-or-widen-dwim)
 (define-key evil-normal-state-map (kbd "<f8>") 'helm-swoop)
 (define-key evil-normal-state-map (kbd "<f9>") 'spacemacs/helm-swoop-region-or-symbol)
-(define-key evil-normal-state-map (kbd "<f10>") 'narrow-or-widen-dwim)
+(define-key evil-normal-state-map (kbd "<f10>") 'whitespace-mode)
 (define-key evil-normal-state-map (kbd "<f11>") 'widen)
 (define-key evil-normal-state-map (kbd "<f12>") 'eval-expression)
 (define-key evil-normal-state-map "j" 'pop-to-mark-command)
@@ -363,7 +363,7 @@ already narrowed."
 
 ;; prettier font
 (set-face-attribute 'default nil
-                    :family "Inconsolata" :height 150 :weight 'normal)
+                    :family "Inconsolata" :height 175 :weight 'normal)
 
 ;; To avoid pixellated powerline
 (setq powerline-default-separator 'rounded)
@@ -392,6 +392,8 @@ already narrowed."
 (setq org-agenda-files '("~/Dropbox/Org/"))
 
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+
+(setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets/"))
 
 (setq evil-snipe-enable-alternate-f-and-t-behaviors t)
 

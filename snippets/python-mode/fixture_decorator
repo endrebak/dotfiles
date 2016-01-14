@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: fixture
+# key: fxd
+# group: definitions
+# --
+@pytest.fixture

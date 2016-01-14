@@ -3,6 +3,6 @@
 # key: sc
 # --
 
-from subprocess import call
+from subprocess import call # yas: move
 
 subprocess.call("$0", ${1:shell=True})
