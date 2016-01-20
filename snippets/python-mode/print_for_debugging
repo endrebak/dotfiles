@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
-# name: print_to_csv
-# key: pc
+# name:print_for_debugging
+# key: pg
 # --
-print(${1:df}.to_csv(sep=" "))
+print($1, "$1")
+print(type($1), "type($1)")

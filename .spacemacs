@@ -363,7 +363,9 @@ already narrowed."
 
 ;; prettier font
 (set-face-attribute 'default nil
-                    :family "Inconsolata" :height 175 :weight 'normal)
+                    :family "Inconsolata" :height 140 :weight 'normal)
+
+
 
 ;; To avoid pixellated powerline
 (setq powerline-default-separator 'rounded)
