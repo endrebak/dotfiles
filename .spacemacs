@@ -132,7 +132,6 @@ layers configuration."
 
 ;; (evilem-default-keybindings "<f8>")
 
-
 (defun run-pytest-on-save ()
   (interactive)
   (if (eq major-mode 'python-mode)
@@ -255,7 +254,7 @@ layers configuration."
 
 ;; Display avy chars in uppercase but enter in lower
 (setq avy-keys
-      '(?A ?S ?D ?F ?J ?K ?L ?Ø))
+      '(?A ?S ?D ?F ?H ?J ?K ?L))
 (setq avy-translate-char-function #'upcase)
 
 ;; Make alt-key work as normal
@@ -302,10 +301,6 @@ already narrowed."
 ;;   (if )
 ;;     )
 
-(defun move-imports-to-top-of-file ()
-  (interactive)
-  (if (eq major-mode 'python-mode)
-      (call-process-region (point-min) (point-max) "python" t t nil "/Users/endrebakkenstovner/code/move_imports/moveimports.py")))
 
 ;; Use home row keys for various movements
 (define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0

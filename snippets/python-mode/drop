@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: drop_pandas
+# key: dr
+# group: definitions
+# --
+drop(${1:labels}, axis=${2:1})

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: pytest_mark
-# key: pt
+# key: pm
 # group: definitions
 # --
 @pytest.mark.$0

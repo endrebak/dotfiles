@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: test
+# key: t
+# group : general
+# --
+def test_$1(input_data, expected_result):
+
+    result = $1(input_data)
+    assert result == expected_result

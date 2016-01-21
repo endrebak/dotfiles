@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert
+# key: in
+# --
+insert(${1:int_loc}, ${2:name}, ${3:data})

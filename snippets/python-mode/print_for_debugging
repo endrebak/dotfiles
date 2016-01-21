@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name:print_for_debugging
-# key: pg
+# key: pb
 # --
 print($1, "$1")
 print(type($1), "type($1)")

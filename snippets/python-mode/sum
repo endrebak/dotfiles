@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sum_pandas
+# key: su
+# group: definitions
+# --
+sum(axis=${1:1}, numeric_only=True)$0
