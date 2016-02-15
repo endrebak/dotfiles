@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: return
-# key: r
+# name: pytest
+# key: pt
 # group: testing
 # --
-return $0
+import pytest

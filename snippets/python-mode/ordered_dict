@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: OrderedDict
+# key: od
+# --
+OrderedDict()

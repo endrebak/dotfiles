@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: stringio
+# key: is
+# --
+from io import StringIO

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pytest_mark_unit
+# key: pmu
+# group: definitions
+# --
+@pytest.mark.unit

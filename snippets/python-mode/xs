@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: xs
+# key: xs
+# --
+xs(${1:values}, level=${2:index_keys}, drop_level=False)

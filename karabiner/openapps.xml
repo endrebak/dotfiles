@@ -149,6 +149,13 @@
       KeyCode::VK_OPEN_URL_APP_Chrome,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_9, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Preview
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::L, ModifierFlag::OPEN_APPS,

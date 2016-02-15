@@ -14,10 +14,10 @@
    dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-test-runner 'pytest python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) ess fasd)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
+   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) fasd (haskell :variables haskell-process-type 'stack-ghci) ipython-notebook)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
 
 
-   dotspacemacs-additional-packages '(py-isort)
+   dotspacemacs-additional-packages '(py-isort ace-jump-helm-line cl-generic)
    ;; A list of packages and/or extensions that will not be install and loaded.
    ;; dotspacemacs-excluded-packages '()
    ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -101,9 +101,6 @@ before layers configuration."
    dotspacemacs-default-package-repository nil)
   ;; User initialization goes here
 
-  ;; (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
-
-  (setq shell-file-name "/bin/bash")
 
   ;; (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
   ;; (add-hook 'rust-mode-hook #'racer-mode)
@@ -120,7 +117,7 @@ before layers configuration."
   )
 
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
 "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -131,6 +128,11 @@ layers configuration."
 ;(add-to-list 'org-src-lang-modes '("ipython" . python))
 
 ;; (evilem-default-keybindings "<f8>")
+
+
+(add-to-list 'exec-path "/Users/endrebakkenstovner/.local/bin")
+
+(setq shell-file-name "/bin/bash")
 
 (defun run-pytest-on-save ()
   (interactive)
@@ -150,6 +152,7 @@ layers configuration."
 
 ;; Invoke fasd find fiile
 (define-key mk-minor-mode-map (kbd "M-p") 'helm-projectile)
+
 
 ;; Save with M-s
 (define-key mk-minor-mode-map (kbd "M-s") 'save-buffer)
@@ -306,6 +309,7 @@ already narrowed."
 (define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0
 (define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
 (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd "<f2>") 'helm-M-x)
 (define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
 (define-key evil-normal-state-map (kbd "<f4>") 'spacemacs/previous-useful-buffer)
 (define-key evil-normal-state-map "K" 'kill-this-buffer)
@@ -384,7 +388,7 @@ already narrowed."
 ;;DELETE trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
+;; (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
 
 (setq org-agenda-files '("~/Dropbox/Org/"))
 

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: concat_pandas
+# key: cn
+# group: definitions
+# --
+pd.concat(${1:dfs}, axis=${2:1})

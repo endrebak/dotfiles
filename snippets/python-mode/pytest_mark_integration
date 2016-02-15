@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pytest_mark_integration
+# key: pmi
+# group: definitions
+# --
+@pytest.mark.integration
