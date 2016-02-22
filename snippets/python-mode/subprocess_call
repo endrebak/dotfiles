@@ -1,8 +1,5 @@
 # -*- mode: snippet -*-
 # name: subproccess_call
-# key: sc
+# key: cl
 # --
-
-from subprocess import call # yas: move
-
-subprocess.call("$0", ${1:shell=True})
+subprocess.call($1, shell=True)

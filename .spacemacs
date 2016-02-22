@@ -134,10 +134,10 @@ layers configuration."
 
 (setq shell-file-name "/bin/bash")
 
-(defun run-pytest-on-save ()
-  (interactive)
-  (if (eq major-mode 'python-mode)
-      (pytest-module "-vv")))
+;; (defun run-pytest-on-save ()
+;;   (interactive)
+;;   (if (eq major-mode 'python-mode)
+;;       (pytest-module "-vv")))
 
 ;; (add-hook 'after-save-hook 'run-pytest-on-save)
 ;; (remove-hook 'after-save-hook 'run-pytest-on-save)
@@ -159,7 +159,7 @@ layers configuration."
 
 (define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
 (define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
-(define-key mk-minor-mode-map (kbd "M-t") 'run-pytest-on-save)
+;; (define-key mk-minor-mode-map (kbd "M-t") 'run-pytest-on-save)
 (define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
 ;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
 (define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)

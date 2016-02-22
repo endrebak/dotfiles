@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: df_assert
+# key: da
+# group: pandas/pytest
+# --
+print(${1:result}.index, "$1")
+print(${2:expected_result}.index, "$2")
+assert $1.index.equals($2.index)
+print($1.columns, "$1")
+print($2.columns, "$2")
+assert $1.columns.equals($2.columns)
+print($1.dtypes, "$1")
+print($2.dtypes, "$2")
+assert $1.dtypes.equals($2.dtypes)
+print($1.shape, "$1")
+print($2.shape, "$2")
+assert $1.shape.equals($2.shape)
+assert $1.equals($2)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: melt
+# key: melt
+# group : pandas
+# --
+pd.melt(${1:df}, id_vars=["$2"], value_vars=${3:None}, var_name="$4", value_name="$5", col_level=None)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bx_python_clustertree
+# key: ct
+# group: bx-python
+# --
+ClusterTree(${1:cluster_distance}, ${2:min_reads}))

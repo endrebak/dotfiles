@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bx_python_clustertree_import
+# key: bxc
+# group: bx-python
+# --
+from bx.intervals.cluster import ClusterTree

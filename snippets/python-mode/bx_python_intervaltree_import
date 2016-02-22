@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bx_python_intervaltree_import
+# key: bxi
+# group: bx-python
+# --
+from bx.intervals.intersection import IntervalTree

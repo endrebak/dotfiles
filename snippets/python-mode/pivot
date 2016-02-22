@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pivot
+# key: pv
+# group: pandas
+# --
+pivot(${1:index}, ${2:column_names}, ${3:values})
