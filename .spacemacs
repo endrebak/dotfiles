@@ -1,47 +1,112 @@
-;; -*- mode: dotspacemacs -*-
+;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-;
-;; dotspacemacs-additional-packages
-;
-
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration."
+  "Configuration Layers declaration.
+You should not put any user code in this function besides modifying the variable
+values."
   (setq-default
+   ;; Base distribution to use. This is a layer contained in the directory
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.emacs.d/private/")
+   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(emacs-lisp git (python :variables python-enable-yapf-format-on-save t) auto-completion org syntax-checking themes-megapack markdown github ipython-notebook (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t) fasd (haskell :variables haskell-process-type 'stack-ghci) ipython-notebook)  ;;evil-easymotion  nim  clojure ipython-notebook avy haskell endrebak evil-annoying-arrows smex fasd dash e clojure
-
-
-   dotspacemacs-additional-packages '(py-isort ace-jump-helm-line cl-generic)
+   dotspacemacs-configuration-layers
+   '(
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     auto-completion
+     better-defaults
+     emacs-lisp
+     git
+     clojure
+     python
+     helm
+     evil-snipe
+     ;; markdown
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     syntax-checking
+     ;; version-control
+     )
+   ;; List of additional packages that will be installed without being
+   ;; wrapped in a layer. If you need some configuration for these
+   ;; packages, then consider creating a layer. You can also put the
+   ;; configuration in `dotspacemacs/user-config'.
+   dotspacemacs-additional-packages '(snakemake-mode ace-jump-helm-line)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   ;; dotspacemacs-excluded-packages '()
-   ;; ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
+   dotspacemacs-excluded-packages '()
+   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
-   ;; the list `dotspacemacs-configuration-layers'
+   ;; the list `dotspacemacs-configuration-layers'. (default t)
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
-before layers configuration."
+before layers configuration.
+You should not put any user code in there besides modifying the variable
+values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-   ;; Specify the startup banner. If the value is an integer then the
-   ;; banner with the corresponding index is used, if the value is `random'
-   ;; then the banner is chosen randomly among the available banners, if
-   ;; the value is nil then no banner is displayed.
-   dotspacemacs-startup-banner 'random
+   ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
+   ;; possible. Set it to nil if you have no way to use HTTPS in your
+   ;; environment, otherwise it is strongly recommended to let it set to t.
+   ;; This variable has no effect if Emacs is launched with the parameter
+   ;; `--insecure' which forces the value of this variable to nil.
+   ;; (default t)
+   dotspacemacs-elpa-https t
+   ;; Maximum allowed time in seconds to contact an ELPA repository.
+   dotspacemacs-elpa-timeout 5
+   ;; If non nil then spacemacs will check for updates at startup
+   ;; when the current branch is not `develop'. (default t)
+   dotspacemacs-check-for-update t
+   ;; One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
+   ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
+   ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
+   ;; unchanged. (default 'vim)
+   dotspacemacs-editing-style 'vim
+   ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
+   dotspacemacs-verbose-loading nil
+   ;; Specify the startup banner. Default value is `official', it displays
+   ;; the official spacemacs logo. An integer value is the index of text
+   ;; banner, `random' chooses a random text banner in `core/banners'
+   ;; directory. A string value must be a path to an image format supported
+   ;; by your Emacs build.
+   ;; If the value is nil then no banner is displayed. (default 'official)
+   dotspacemacs-startup-banner 'official
+   ;; List of items to show in the startup buffer. If nil it is disabled.
+   ;; Possible values are: `recents' `bookmarks' `projects'.
+   ;; (default '(recents projects))
+   dotspacemacs-startup-lists '(recents projects)
+   ;; Number of recent files to show in the startup buffer. Ignored if
+   ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
+   dotspacemacs-startup-recent-list-size 5
+   ;; Default major mode of the scratch buffer (default `text-mode')
+   dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai)
-   ;; If non nil the cursor color matches the state color.
+   dotspacemacs-themes '(monokai
+                         spacemacs-dark
+                         spacemacs-light
+                         solarized-light
+                         solarized-dark
+                         leuven
+                         zenburn)
+   ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
@@ -52,365 +117,176 @@ before layers configuration."
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
+   ;; The leader key accessible in `emacs state' and `insert state'
+   ;; (default "M-m")
+   dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
-   ;; pressing `<leader> m`
+   ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
+   ;; Major mode leader key accessible in `emacs state' and `insert state'.
+   ;; (default "C-M-m)
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   ;; These variables control whether separate commands are bound in the GUI to
+   ;; the key pairs C-i, TAB and C-m, RET.
+   ;; Setting it to a non-nil value, allows for separate commands under <C-i>
+   ;; and TAB or <C-m> and RET.
+   ;; In the terminal, these pairs are generally indistinguishable, so this only
+   ;; works in the GUI. (default nil)
+   dotspacemacs-distinguish-gui-tab nil
+   ;; (Not implemented) dotspacemacs-distinguish-gui-ret nil
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
    dotspacemacs-command-key ":"
-   ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
-   ;; the commands bound to the current keystrokes.
-   dotspacemacs-guide-key-delay 0.1
+   ;; If non nil `Y' is remapped to `y$'. (default t)
+   dotspacemacs-remap-Y-to-y$ t
+   ;; Name of the default layout (default "Default")
+   dotspacemacs-default-layout-name "Default"
+   ;; If non nil the default layout name is displayed in the mode-line.
+   ;; (default nil)
+   dotspacemacs-display-default-layout nil
+   ;; If non nil then the last auto saved layouts are resume automatically upon
+   ;; start. (default nil)
+   dotspacemacs-auto-resume-layouts nil
+   ;; Location where to auto-save files. Possible values are `original' to
+   ;; auto-save the file in-place, `cache' to auto-save the file to another
+   ;; file stored in the cache directory and `nil' to disable auto-saving.
+   ;; (default 'cache)
+   dotspacemacs-auto-save-file-location 'cache
+   ;; Maximum number of rollback slots to keep in the cache. (default 5)
+   dotspacemacs-max-rollback-slots 5
+   ;; If non nil then `ido' replaces `helm' for some commands. For now only
+   ;; `find-files' (SPC f f), `find-spacemacs-file' (SPC f e s), and
+   ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
+   dotspacemacs-use-ido nil
+   ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
+   dotspacemacs-helm-resize nil
+   ;; if non nil, the helm header is hidden when there is only one source.
+   ;; (default nil)
+   dotspacemacs-helm-no-header nil
+   ;; define the position to display `helm', options are `bottom', `top',
+   ;; `left', or `right'. (default 'bottom)
+   dotspacemacs-helm-position 'bottom
+   ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
+   ;; several times cycle between the kill ring content. (default nil)
+   dotspacemacs-enable-paste-micro-state nil
+   ;; Which-key delay in seconds. The which-key buffer is the popup listing
+   ;; the commands bound to the current keystroke sequence. (default 0.4)
+   dotspacemacs-which-key-delay 0.4
+   ;; Which-key frame position. Possible values are `right', `bottom' and
+   ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
+   ;; right; if there is insufficient space it displays it at the bottom.
+   ;; (default 'bottom)
+   dotspacemacs-which-key-position 'bottom
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
-   ;; nil ;; to boost the loading time.
+   ;; nil to boost the loading time. (default t)
    dotspacemacs-loading-progress-bar t
-   ;; If non nil the frame is fullscreen when Emacs starts up.
+   ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
-   ;; Use to disable fullscreen animations in OSX."
-   dotspacemacs-fullscreen-use-non-native t
+   ;; Use to disable fullscreen animations in OSX. (default nil)
+   dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
-   ;; (Emacs 24.4+ only)
+   ;; (default nil) (Emacs 24.4+ only)
    dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
-   ;; Transparency can be toggled through `toggle-transparency'.
+   ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-active-transparency 90
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
-   ;; Transparency can be toggled through `toggle-transparency'.
+   ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
-   ;; If non nil unicode symbols are displayed in the mode line.
-   dotspacemacs-mode-line-unicode-symbols nil
+   ;; If non nil unicode symbols are displayed in the mode line. (default t)
+   dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
-   ;; point when it reaches the top or bottom of the screen.
-   dotspacemacs-smooth-scrolling nil
+   ;; point when it reaches the top or bottom of the screen. (default t)
+   dotspacemacs-smooth-scrolling t
+   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
+   ;; derivatives. If set to `relative', also turns on relative line numbers.
+   ;; (default nil)
+   dotspacemacs-line-numbers nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
+   ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
+   ;; Select a scope to highlight delimiters. Possible values are `any',
+   ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
+   ;; emphasis the current one). (default 'all)
+   dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
+   ;; (default nil)
    dotspacemacs-persistent-server nil
+   ;; List of search tool executable names. Spacemacs uses the first installed
+   ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
+   ;; (default '("ag" "pt" "ack" "grep"))
+   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
-   ;; Not used for now.
-   dotspacemacs-default-package-repository nil)
-  ;; User initialization goes here
+   ;; Not used for now. (default nil)
+   dotspacemacs-default-package-repository nil
+   ;; Delete whitespace while saving buffer. Possible values are `all'
+   ;; to aggressively delete empty line and long sequences of whitespace,
+   ;; `trailing' to delete only the whitespace at end of lines, `changed'to
+   ;; delete only whitespace for changed lines or `nil' to disable cleanup.
+   ;; (default nil)
+   dotspacemacs-whitespace-cleanup nil
+   ))
 
-
-  ;; (setenv "RUST_SRC_PATH" "/Users/endrebakkenstovner/local/rustc-1.1.0/src")
-  ;; (add-hook 'rust-mode-hook #'racer-mode)
-  ;; (add-hook 'racer-mode-hook #'eldoc-mode)
-
-
-  ;; (add-hook 'racer-mode-hook #'company-mode)
-
-  ;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
-  ;; (setq company-tooltip-align-annotations t)
-  ;; (setq racer-rust-src-path "/Users/endrebakkenstovner/local/rustc-1.1.0/src/")
-  ;; (setq racer-cmd "/Users/endrebakkenstovner/local/racer/target/release/racer")
-  ;; (add-to-list 'load-path "/Users/endrebakkenstovner/local/racer/editors/emacs")
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code.
+It is called immediately after `dotspacemacs/init', before layer configuration
+executes.
+ This function is mostly useful for variables that need to be set
+before packages are loaded. If you are unsure, you should try in setting them in
+`dotspacemacs/user-config' first."
   )
 
-
 (defun dotspacemacs/user-config ()
-"Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  ;;
 
-; dont prompt to eval ipython
-;; (setq org-confirm-babel-evaluate nil)
-; let keyword ipython be evaluated
-;(add-to-list 'org-src-lang-modes '("ipython" . python))
-
-;; (evilem-default-keybindings "<f8>")
-
-
-(add-to-list 'exec-path "/Users/endrebakkenstovner/.local/bin")
-
-(setq shell-file-name "/bin/bash")
-
-;; (defun run-pytest-on-save ()
-;;   (interactive)
-;;   (if (eq major-mode 'python-mode)
-;;       (pytest-module "-vv")))
-
-;; (add-hook 'after-save-hook 'run-pytest-on-save)
-;; (remove-hook 'after-save-hook 'run-pytest-on-save)
-
-(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
-
-;; Switch window with M-o
-(define-key mk-minor-mode-map (kbd "M-o") 'other-window)
-
-;; Invoke fasd find fiile
-(define-key mk-minor-mode-map (kbd "M-f") 'fasd-find-file)
-
-;; Invoke fasd find fiile
-(define-key mk-minor-mode-map (kbd "M-p") 'helm-projectile)
+  ;; keybidings
+  (global-set-key (kbd "M-<delete>") 'evil-scroll-page-down)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil)
 
 
-;; Save with M-s
-(define-key mk-minor-mode-map (kbd "M-s") 'save-buffer)
+  ;; shortcuts
+  (global-set-key (kbd "<f5>") 'avy-goto-char-timer)
+  (global-set-key (kbd "<f6>") 'helm-semantic-or-imenu)
+  (global-set-key (kbd "<f7>") 'spacemacs/helm-project-do-ag)
+  (global-set-key (kbd "<f8>") 'helm-swoop)
+  (global-set-key (kbd "<f10>") 'whitespace-mode)
+  (eval-after-load "helm"
+    '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line))
 
-(define-key mk-minor-mode-map (kbd "M-d") 'helm-semantic-or-imenu)
-(define-key mk-minor-mode-map (kbd "M-r") 'helm-resume)
-;; (define-key mk-minor-mode-map (kbd "M-t") 'run-pytest-on-save)
-(define-key mk-minor-mode-map (kbd "M-j") 'helm-all-mark-rings)
-;; (define-key mk-minor-mode-map (kbd "M-i") 'helm-show-kill-ring)
-(define-key mk-minor-mode-map (kbd "M-f") 'helm-mini)
-(define-key mk-minor-mode-map (kbd "M-a") 'ace-window)
-
-(define-key mk-minor-mode-map (kbd "M-C-w") 'sp-beginning-of-sexp)
-
-;; (define-key mk-minor-mode-map (kbd "<f9>") 'org-edit-src-code)
-;; (define-key mk-minor-mode-map (kbd "<f10>") 'org-edit-src-exit)
-
-;; (define-key mk-minor-mode-map (kbd "M-w") 'cider-repl-backward-input)
-;; (define-key mk-minor-mode-map (kbd "M-t") 'cider-repl-forward-input)
+  ;; avy-jump-line-settings
+  (setq ace-jump-helm-line-default-action 'select)
 
 
-(eval-after-load "helm"
-  '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line-execute-action))
+  ;; avy settings
+  (setq avy-keys
+        '(?A ?S ?D ?F ?G ?H ?J ?K ?L))
+  (setq avy-translate-char-function #'upcase)
 
+  ;; delete whitespace before saving
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Movement
-;; (evil-leader/set-key "ol" 'sp-forward-sexp)
-;; (evil-leader/set-key "oh" 'sp-backward-sexp)
-;; (evil-leader/set-key "ok" 'sp-down-sexp)
-;; (evil-leader/set-key "oj" 'sp-up-sexp)
+  ;; save with meta-s
+  (global-set-key (kbd "M-s") 'save-buffer)
 
-(evil-leader/set-key "ow" 'sp-splice-sexp)
-(evil-leader/set-key "oe" 'sp-splice-sexp-killing-forward)
-(evil-leader/set-key "or" 'sp-splice-sexp-killing-backward)
-(evil-leader/set-key "ot" 'sp-splice-sexp-killing-around)
-(evil-leader/set-key "os" 'sp-kill-sexp)
-(evil-leader/set-key "oa" 'sp-backward-kill-sexp)
-(evil-leader/set-key "od" 'sp-backward-copy-sexp)
-(evil-leader/set-key "of" 'sp-copy-sexp)
-(evil-leader/set-key "oz" 'sp-transpose-sexp)
-(evil-leader/set-key "oq" 'sp-backward-unwrap-sexp)
-(evil-leader/set-key "og" 'sp-convolute-sexp)
-(evil-leader/set-key "oc" 'sp-unwrap-sexp)
-(evil-leader/set-key "ov" 'sp-absorb-sexp)
-(evil-leader/set-key "ob" 'sp-emit-sexp)
-(evil-leader/set-key "ou" 'sp-extract-before-sexp)
-(evil-leader/set-key "oi" 'sp-extract-after-sexp)
-(evil-leader/set-key "oo" 'sp-split-sexp)
-(evil-leader/set-key "ox" 'sp-join-sexp)
-(evil-leader/set-key "oh" 'sp-rewrap-sexp)
-(evil-leader/set-key "oj" 'sp-swap-enclosing-sexp)
-(evil-leader/set-key "ol" 'sp-forward-slurp-sexp)
-(evil-leader/set-key "ok" 'sp-backward-slurp-sexp)
-(evil-leader/set-key "on" 'sp-backward-barf-sexp)
-(evil-leader/set-key "om" 'sp-forward-barf-sexp)
-(evil-leader/set-key "oy" 'sp-add-to-previous-sexp)
-(evil-leader/set-key "op" 'sp-add-to-next-sexp)
+)
 
-(evil-leader/set-key "mow" 'sp-backward-sexp)
-(evil-leader/set-key "moe" 'sp-forward-sexp)
-(evil-leader/set-key "mor" 'sp-down-sexp)
-(evil-leader/set-key "mot" 'sp-up-sexp)
-(evil-leader/set-key "moa" 'sp-backward-down-sexp)
-(evil-leader/set-key "mos" 'sp-backward-up-sexp)
-(evil-leader/set-key "mod" 'sp-previous-sexp)
-(evil-leader/set-key "mof" 'sp-next-sexp)
-(evil-leader/set-key "moq" 'sp-end-of-sexp)
-(evil-leader/set-key "mog" 'sp-beginning-of-sexp)
-(evil-leader/set-key "mov" 'sp-beginning-of-previous-sexp)
-(evil-leader/set-key "mob" 'sp-beginning-of-next-sexp)
-(evil-leader/set-key "mou" 'sp-end-of-previous-sexp)
-(evil-leader/set-key "moi" 'sp-end-of-next-sexp)
-
-
-;; Do not automatically write ) after (
-(smartparens-global-mode nil)
-
-(define-minor-mode mk-minor-mode
-  "A minor mode so that my key settings override annoying major modes."
-  t " mk" 'mk-minor-mode-map)
-
-(mk-minor-mode 1)
-;; (defadvice yes-or-no-p (around prevent-dialog activate)
-;;   "Prevent yes-or-no-p from activating a dialog"
-;;   (let ((use-dialog-box nil))
-;;     ad-do-it))
-;; (defadvice y-or-n-p (around prevent-dialog-yorn activate)
-;;   "Prevent y-or-n-p from activating a dialog"
-;;   (let ((use-dialog-box nil))
-;;     ad-do-it))
-
-(setq evil-ex-substitute-global t)
-
-;; Make screen grey when using avy
-(setq avy-background t)
-(setq avy-highlight-first nil)
-(setq avy-all-windows t)
-
-;; Make decision trees less weird at the expense of terseness
-(setq avy-style 'de-bruijn)
-(setq avy-timeout-seconds 0.3)
-
-;; Display avy chars in uppercase but enter in lower
-(setq avy-keys
-      '(?A ?S ?D ?F ?H ?J ?K ?L))
-(setq avy-translate-char-function #'upcase)
-
-;; Make alt-key work as normal
-(setq default-input-method "MacOSX")
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'nil)
-
-
-(defun narrow-or-widen-dwim (p)
-  "Widen if buffer is narrowed, narrow-dwim otherwise.
-Dwim means: region, org-src-block, org-subtree, or defun,
-whichever applies first. Narrowing to org-src-block actually
-calls `org-edit-src-code'.
-
-With prefix P, don't widen, just narrow even if buffer is
-already narrowed."
-  (interactive "P")
-  (declare (interactive-only))
-  (cond ((and (buffer-narrowed-p) (not p)) (widen))
-        ((region-active-p)
-         (narrow-to-region (region-beginning) (region-end)))
-        ((derived-mode-p 'org-mode)
-         ;; `org-edit-src-code' is not a real narrowing
-         ;; command. Remove this first conditional if you
-         ;; don't want it.
-         (cond ((ignore-errors (org-edit-src-code))
-                (delete-other-windows))
-               ((ignore-errors (org-narrow-to-block) t))
-               (t (org-narrow-to-subtree))))
-        ((derived-mode-p 'latex-mode)
-         (LaTeX-narrow-to-environment))
-        (t (narrow-to-defun))))
-
-
-;; (defun shell-command-on-buffer ()
-;;   "Asks for a command and executes it in inferior shell with current buffer
-;; as input."
-;;   (interactive)
-;;   (shell-command-on-buffer
-;;    (point-min) (point-max)
-;;    (read-shell-command "shell command on buffer: ")))
-;; (setq narrow-to-defun-or-widen-next-command )
-;; (defun narrow-to-defun-or-widen ()
-;;   (if )
-;;     )
-
-
-;; Use home row keys for various movements
-(define-key evil-normal-state-map (kbd "0") 'delete-window) ;; _ does same thing as 0
-(define-key evil-normal-state-map (kbd "<down>") 'evil-next-line)
-(define-key evil-normal-state-map (kbd "<up>") 'evil-previous-line)
-(define-key evil-normal-state-map (kbd "<f2>") 'helm-M-x)
-(define-key evil-normal-state-map (kbd "<f3>") 'spacemacs/next-useful-buffer)
-(define-key evil-normal-state-map (kbd "<f4>") 'spacemacs/previous-useful-buffer)
-(define-key evil-normal-state-map "K" 'kill-this-buffer)
-(define-key evil-normal-state-map (kbd "<f5>") 'avy-goto-char-timer)
-(define-key evil-normal-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-(define-key evil-normal-state-map (kbd "<f7>") 'narrow-or-widen-dwim)
-(define-key evil-normal-state-map (kbd "<f8>") 'helm-swoop)
-(define-key evil-normal-state-map (kbd "<f9>") 'spacemacs/helm-swoop-region-or-symbol)
-(define-key evil-normal-state-map (kbd "<f10>") 'whitespace-mode)
-(define-key evil-normal-state-map (kbd "<f11>") 'widen)
-(define-key evil-normal-state-map (kbd "<f12>") 'eval-expression)
-(define-key evil-normal-state-map "j" 'pop-to-mark-command)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-backward-paragraph)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-forward-paragraph)
-(define-key evil-normal-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-(define-key evil-normal-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-;; (define-key evil-normal-state-map (kbd "M-j") 'sp-backward-symbol)
-;; (define-key evil-normal-state-map (kbd "M-ø") 'forward-symbol)
-
-;; (define-key evil-visual-state-map "l" 'avy-goto-line)
-(define-key evil-visual-state-map (kbd "<down>") 'evil-next-line)
-(define-key evil-visual-state-map (kbd "<up>") 'evil-previous-line)
-(define-key evil-visual-state-map (kbd "<f5>") 'avy-goto-char-timer)
-(define-key evil-visual-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-(define-key evil-visual-state-map (kbd "C-l") 'evil-backward-paragraph)
-(define-key evil-visual-state-map (kbd "C-k") 'evil-forward-paragraph)
-(define-key evil-visual-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-(define-key evil-visual-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-;; (define-key evil-visual-state-map (kbd "M-j") 'sp-backward-symbol)
-;; (define-key evil-visual-state-map (kbd "M-ø") 'forward-symbol)
-
-
-;; (define-key evil-motion-state-map "l" 'avy-goto-line)
-(define-key evil-motion-state-map "k" 'evil-next-line)
-(define-key evil-motion-state-map "l" 'evil-previous-line)
-;; (define-key evil-motion-state-map "k" 'avy-goto-word-or-subword-1)
-(define-key evil-motion-state-map (kbd "<f5>") 'avy-goto-char-timer)
-(define-key evil-motion-state-map (kbd "<f6>") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-(define-key evil-motion-state-map (kbd "C-l") 'evil-backward-paragraph)
-(define-key evil-motion-state-map (kbd "C-k") 'evil-forward-paragraph)
-(define-key evil-motion-state-map (kbd "M-l") 'evil-backward-indentation-begin)
-(define-key evil-motion-state-map (kbd "M-k") 'evil-forward-indentation-begin)
-;; (define-key evil-motion-state-map (kbd "M-j") 'sp-backward-symbol)
-;; (define-key evil-motion-state-map (kbd "M-ø") 'forward-symbol)
-
-
-(define-key evil-insert-state-map (kbd "<f5>") 'avy-goto-char-timer)
-(define-key evil-insert-state-map (kbd "<f7>") 'yas-expand)
-
-
-;; prettier font
-(set-face-attribute 'default nil
-                    :family "Inconsolata" :height 140 :weight 'normal)
-
-
-
-;; To avoid pixellated powerline
-(setq powerline-default-separator 'rounded)
-
-;; Make evil-snipe override evil fFtT;,
-;; (evil-snipe-mode 1)
-;; (setq evil-snipe-override-mode t)
-;; (setq evil-snipe-repeat-keys t)
-;; (setq evil-snipe-scope 'whole-buffer)
-;; (setq evil-snipe-repeat-scope 'whole-buffer)
-;; (setq evil-snipe-auto-scroll nil)
-
-;; do not need to reload buffers to see git branch change
-(global-auto-revert-mode 1)
-(setq auto-revert-check-vc-info t)
-
-
-;; Turn off the tildes in the fringe
-(global-vi-tilde-fringe-mode -1)
-
-;;DELETE trailing whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; (add-to-list 'exec-path "/Users/endrebakkenstovner/Library/Haskell/bin/")
-
-(setq org-agenda-files '("~/Dropbox/Org/"))
-
-(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-
-(setq yas-snippet-dirs '("~/Dropbox/dotfiles/snippets/"))
-
-(setq evil-snipe-enable-alternate-f-and-t-behaviors t)
-
-(setq-default dotspacemacs-configuration-layers '(evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t ))
-;; (setq-default dotspacemacs-configuration-layers
-;;               '((c-c++ :variables c-c++-enable-clang-support t)))
-;; (defun custom-persp/python ()
-;;   (interactive)
-;;   (custom-persp "python"
-;;                 (progn
-;;                   (layout-triple-columns)
-;;                   (select-window-3)
-;;                   (python-start-or-switch-repl))))
-
-;;   (custom-persp/python)
-;;   (define-key mk-minor-mode-map (kbd "C-p") 'custom-persp/python)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -419,22 +295,13 @@ already narrowed."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
- '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
- '(paradox-github-token t)
- '(ring-bell-function (quote ignore) t))
+ '(package-selected-packages
+   (quote
+    (evil-snipe reveal-in-osx-finder pbcopy osx-trash launchctl flycheck-pos-tip flycheck snakemake-mode smeargle pyvenv pytest pyenv-mode py-yapf pip-requirements orgit magit-gitflow hy-mode helm-pydoc helm-gitignore request helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit magit magit-popup git-commit with-editor cython-mode company-statistics company-quickhelp pos-tip company-anaconda company clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider queue clojure-mode auto-yasnippet yasnippet anaconda-mode pythonic f ac-ispell auto-complete ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(avy-lead-face ((t (:background "DeepSkyBlue3" :foreground "white"))))
- '(avy-lead-face-0 ((t (:background "DeepSkyBlue3" :foreground "white"))))
- '(avy-lead-face-1 ((t (:background "DeepSkyBlue3" :foreground "white"))))
- '(avy-lead-face-2 ((t (:background "DeepSkyBlue3" :foreground "white"))))
- '(aw-leading-char-face ((t (:foreground "red" :height 15.0))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

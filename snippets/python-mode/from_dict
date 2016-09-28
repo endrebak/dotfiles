@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: from_dict
+# key: fdf
+# group: pandas
+# --
+pd.DataFrame.from_dict(${1:rowdicts})

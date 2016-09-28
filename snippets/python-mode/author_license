@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: author_license
+# key: al
+# group: meta
+# --
+__author__ = "Endre Bakken Stovner https://github.com/endrebak/"
+__license__ = "MIT"

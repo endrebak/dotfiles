@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: snakemake_utils_r
+# key: sur
+# group: snakemake
+# --
+from snakemake.utils import R

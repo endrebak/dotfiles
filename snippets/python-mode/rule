@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: rule
+# expand-env: ((yas-indent-line 'fixed))
+# key: rl
+# would be great to update this to use default value of path
+# --
+rule $1:
+    input:
+        infile = ""
+    output:
+        outfile = ""
+    $0

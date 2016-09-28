@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: to_csv
+# key: tcs
+# --
+to_csv(sep=" ")

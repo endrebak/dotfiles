@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: require_tmux
+# key: tmux
+# group: helper
+# --
+from sys import platform
+from os import environ
+(platform in ["linux", "linux2"]) and environ["TMUX"] # will raise keyerror if not within tmux session using linux

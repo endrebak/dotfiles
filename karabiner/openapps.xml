@@ -4,8 +4,23 @@
 
     <!-- These are the different apps that I want to open. -->
     <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Evernote</name>
+      <url type="file">/Applications/Evernote.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_Anki</name>
+      <url type="file">/Applications/Anki.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_APP_Preview</name>
       <url type="file">/Applications/Preview.app</url>
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_APP_RStudio</name>
+      <url type="file">/Applications/RStudio.app</url>
     </vkopenurldef>
 
     <vkopenurldef>
@@ -118,8 +133,8 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::KEYPAD_7, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Ibooks,
+      KeyCode::KEYPAD_8, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Evernote,
     </autogen>
 
     <autogen>
@@ -141,6 +156,13 @@
       KeyCode::KEYPAD_1, ModifierFlag::OPEN_APPS,
 
       __ { KeyCode::VK_OPEN_URL_APP_Dash, KeyCode::L, ModifierFlag::COMMAND_L, }__
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::SPACE, ModifierFlag::OPEN_APPS,
+
+      KeyCode::VK_OPEN_URL_APP_RStudio,
     </autogen>
 
     <autogen>
@@ -178,9 +200,9 @@
 
     <autogen>
       __KeyToKey__
-      KeyCode::KEYPAD_8, ModifierFlag::OPEN_APPS,
+      KeyCode::KEYPAD_7, ModifierFlag::OPEN_APPS,
 
-      KeyCode::VK_OPEN_URL_APP_Kindle,
+      KeyCode::VK_OPEN_URL_APP_Anki,
     </autogen>
     <autogen>
       __KeyToKey__
