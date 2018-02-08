@@ -9,8 +9,8 @@
     </vkopenurldef>
 
     <vkopenurldef>
-      <name>KeyCode::VK_OPEN_URL_APP_Anki</name>
-      <url type="file">/Applications/Anki.app</url>
+      <name>KeyCode::VK_OPEN_URL_APP_Slack</name>
+      <url type="file">/Applications/Slack.app</url>
     </vkopenurldef>
 
     <vkopenurldef>
@@ -137,6 +137,13 @@
       KeyCode::VK_OPEN_URL_APP_Evernote,
     </autogen>
 
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::KEYPAD_2, ModifierFlag::OPEN_APPS,
+      KeyCode::VK_OPEN_URL_APP_Ibooks,
+    </autogen>
+
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::OPEN_APPS,
@@ -165,11 +172,11 @@
       KeyCode::VK_OPEN_URL_APP_RStudio,
     </autogen>
 
-    <autogen>
-      __KeyToKey__
-      KeyCode::KEYPAD_4, ModifierFlag::OPEN_APPS,
-      KeyCode::VK_OPEN_URL_APP_Chrome,
-    </autogen>
+    <!-- <autogen> -->
+    <!--   __KeyToKey__ -->
+    <!--   KeyCode::KEYPAD_4, ModifierFlag::OPEN_APPS, -->
+    <!--   KeyCode::VK_OPEN_URL_APP_Chrome, -->
+    <!-- </autogen> -->
 
 
     <autogen>
@@ -202,7 +209,7 @@
       __KeyToKey__
       KeyCode::KEYPAD_7, ModifierFlag::OPEN_APPS,
 
-      KeyCode::VK_OPEN_URL_APP_Anki,
+      KeyCode::VK_OPEN_URL_APP_Slack,
     </autogen>
     <autogen>
       __KeyToKey__

@@ -18,6 +18,15 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ansible
+     slack
+     shell-scripts
+     sql
+     ruby
+     html
+     yaml
+     javascript
+     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -30,21 +39,28 @@ values."
      clojure
      python
      helm
-     evil-snipe
-     ;; markdown
+     (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors)
+     (rust :variables rust-format-on-save)
+     markdown
+     ess
+     latex
+     bibtex
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-diff-side 'right
+                      version-control-global-margin t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(snakemake-mode ace-jump-helm-line)
+   dotspacemacs-additional-packages '(snakemake-mode ace-jump-helm-line nyan-mode markdown-preview-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -110,7 +126,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Menlo"
                                :size 13
                                :weight normal
                                :width normal
@@ -237,6 +253,7 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -254,19 +271,66 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;
+  ;; (setq rust-format-on-save t)
+
+  ;; (when (window-system)
+  ;;   (set-default-font "Fira Code"))
+  ;; (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+  ;;               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+  ;;               (36 . ".\\(?:>\\)")
+  ;;               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+  ;;               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+  ;;               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+  ;;               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+  ;;               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+  ;;               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+  ;;               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+  ;;               (48 . ".\\(?:x[a-zA-Z]\\)")
+  ;;               (58 . ".\\(?:::\\|[:=]\\)")
+  ;;               (59 . ".\\(?:;;\\|;\\)")
+  ;;               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+  ;;               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+  ;;               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+  ;;               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+  ;;               (91 . ".\\(?:]\\)")
+  ;;               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+  ;;               (94 . ".\\(?:=\\)")
+  ;;               (119 . ".\\(?:ww\\)")
+  ;;               (123 . ".\\(?:-\\)")
+  ;;               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+  ;;               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+  ;;               )
+  ;;             ))
+    ;; (dolist (char-regexp alist)
+    ;;   (set-char-table-range composition-function-table (car char-regexp)
+    ;;                         `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+  (nyan-mode)
+  (add-to-list 'auto-mode-alist '("\\.nf\\'" . groovy-mode))
+
+  (add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
+  (setq comint-buffer-maximum-size 256)
+
+  ;; use evil-snipe with f/t
+  (evil-snipe-override-mode 1)
+
 
   ;; keybidings
-  (global-set-key (kbd "M-<delete>") 'evil-scroll-page-down)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil)
 
+  (setq evil-ex-substitute-global t)
 
   ;; shortcuts
+  ;; (evil-define-key 'normal nil (kbd "j") 'evil-jump-backward)
+  (global-set-key (kbd "<kp-delete>") 'evil-scroll-page-down)
+  (global-set-key (kbd "M-o") 'other-window)
   (global-set-key (kbd "<f5>") 'avy-goto-char-timer)
   (global-set-key (kbd "<f6>") 'helm-semantic-or-imenu)
   (global-set-key (kbd "<f7>") 'spacemacs/helm-project-do-ag)
   (global-set-key (kbd "<f8>") 'helm-swoop)
   (global-set-key (kbd "<f10>") 'whitespace-mode)
+  (global-set-key (kbd "<f12>") 'helm-show-kill-ring)
   (eval-after-load "helm"
     '(define-key helm-map (kbd "<f5>") 'ace-jump-helm-line))
 
@@ -297,11 +361,13 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-snipe reveal-in-osx-finder pbcopy osx-trash launchctl flycheck-pos-tip flycheck snakemake-mode smeargle pyvenv pytest pyenv-mode py-yapf pip-requirements orgit magit-gitflow hy-mode helm-pydoc helm-gitignore request helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit magit magit-popup git-commit with-editor cython-mode company-statistics company-quickhelp pos-tip company-anaconda company clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider queue clojure-mode auto-yasnippet yasnippet anaconda-mode pythonic f ac-ispell auto-complete ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme))))
+    (git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl groovy-mode jinja2-mode company-ansible ansible-doc ansible pdf-tools tablist seq slack emojify circe oauth2 ht alert log4e gntp insert-shebang fish-mode company-shell winum unfill fuzzy sql-indent rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode org-ref key-chord ivy helm-bibtex parsebib company-auctex biblio biblio-core auctex hide-comnt markdown-preview-mode web-server websocket nyan-mode csv-mode yapfify uuidgen toc-org py-isort org-plus-contrib org-bullets mwim live-py-mode link-hint git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump column-enforce-mode clojure-snippets cargo toml-mode racer rust-mode flycheck-rust company-racer deferred ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode mmm-mode markdown-toc markdown-mode gh-md evil-snipe reveal-in-osx-finder pbcopy osx-trash launchctl flycheck-pos-tip flycheck snakemake-mode smeargle pyvenv pytest pyenv-mode py-yapf pip-requirements orgit magit-gitflow hy-mode helm-pydoc helm-gitignore request helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit magit magit-popup git-commit with-editor cython-mode company-statistics company-quickhelp pos-tip company-anaconda company clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider queue clojure-mode auto-yasnippet yasnippet anaconda-mode pythonic f ac-ispell auto-complete ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
+ '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
